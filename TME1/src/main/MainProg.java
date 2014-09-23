@@ -11,12 +11,13 @@ public class MainProg {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		
-		String filename = "cacm/cacm.txt";
+		String filename = "cisi/cisi.txt";
 		
 		DocumentIter dociter = new DocumentIter(filename, new CisiParser());
 		
 		for(Document d : dociter){
 			
+			break;
 		}
 		
 
