@@ -1,29 +1,25 @@
 package parsing;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.StringReader;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import classes.Document;
 
 public class CisiParser implements DocParser {
 	
 	private int id;
-	private String titre;
-	private Date date;
-	private String auteur;
-	private List<String> keywords;
-	private String text;
+	private String titre = null;
+	private Date date = null;
+	private String auteur = null;
+	private List<String> keywords = null;
+	private String text = null;
+	private List<Integer> links = null;
 	
 	@Override
 	public Document getDocument(String text, long lastAddress, String filename) {
 		parseCisiText(text);
-		return new Document(id, titre, date, auteur, keywords, this.text, filename, lastAddress);
+		return new Document(this.id, this.titre, this.date, this.auteur, this.keywords, this.text, this.links, filename, lastAddress);
 	}
 
 	private void parseCisiText(String text){
@@ -37,21 +33,26 @@ public class CisiParser implements DocParser {
 		
 		for(String line : lines){
 		
-			if(line.matches("\\.(T|B|A|K|W|X)")){
+			if(line.matches("\\.(T|B|A|K|W|X)\n")){
 				
 				switch(currentCat){
 					case 'T':
-						title = buf.s
+						titre = buf.toString().trim();
 						break;
 					case 'B':
+						date = null;
 						break;
 					case 'A':
+						auteur = buf.toString().trim();
 						break;
 					case 'K':
+						keywords = Arrays.asList(buf.toString().trim().split(","));
 						break;
 					case 'W':
+						text = buf.toString().trim();
 						break;
 					case 'X':
+						links = null;
 						break;
 				}
 				
