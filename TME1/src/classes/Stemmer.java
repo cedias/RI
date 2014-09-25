@@ -463,7 +463,12 @@ public class Stemmer
 
 
    public HashMap<String,Integer> porterStemmerHash(String s){
+	   
          HashMap<String,Integer> res = new HashMap<String,Integer>();
+         
+         if(s == null)
+        	 return res;
+         
          res.put(" * ",0);
        Pattern p = Pattern.compile("([\\w]+)");
              Matcher m = p.matcher(s);

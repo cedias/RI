@@ -63,4 +63,13 @@ public class Document {
 		return fileAdress;
 	}
 
+	@Override
+	public String toString() {
+		return "Document [id=" + id + ", titre=" + titre + ", date=" + date
+				+ ", auteur=" + auteur + ", keywords=" + keywords + ", links="
+				+ links + ", text=" + text + ", filename=" + filename
+				+ ", fileAdress=" + fileAdress + "]";
+	}
+
+	
 }

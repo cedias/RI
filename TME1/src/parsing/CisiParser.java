@@ -33,40 +33,44 @@ public class CisiParser implements DocParser {
 		
 		for(String line : lines){
 		
-			if(line.matches("\\.(T|B|A|K|W|X)\n")){
+			if(line.matches("^\\.(T|B|A|K|W|X|N)$")){
 				
 				switch(currentCat){
+					case '#':
+						break;
+					case 'N': //Cacm
+						break;
 					case 'T':
-						titre = buf.toString().trim();
+						this.titre = buf.toString().trim();
 						break;
 					case 'B':
-						date = null;
+						this.date = null;
 						break;
 					case 'A':
-						auteur = buf.toString().trim();
+						this.auteur = buf.toString().trim();
 						break;
 					case 'K':
-						keywords = Arrays.asList(buf.toString().trim().split(","));
+						this.keywords = Arrays.asList(buf.toString().trim().split(","));
 						break;
 					case 'W':
-						text = buf.toString().trim();
+						this.text = buf.toString().trim();
 						break;
 					case 'X':
 						links = null;
 						break;
 				}
 				
-				System.out.println(currentCat + ": "+buf.toString()+"\n");
+				
 				
 				currentCat = line.charAt(1);
-				
 				buf.setLength(0);
 				continue;
 			}
+			
 			if(currentCat == '#')
 				continue;
 			
-			buf.append(line);
+			buf.append(line+'\n');
 			
 			
 		}
