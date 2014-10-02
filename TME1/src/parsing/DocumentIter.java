@@ -24,7 +24,6 @@ public class DocumentIter implements Iterable<Document> {
 	
 
 	
-	@SuppressWarnings("resource")
 	public DocumentIter(String filename, DocParser parser) throws FileNotFoundException {
 		super();
 		this.filename = filename;

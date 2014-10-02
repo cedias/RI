@@ -1,13 +1,14 @@
 package parsing;
 
-import java.util.Date;
-import java.util.List;
+import java.io.IOException;
 
 import classes.Document;
 
 public interface DocParser {
 
-	Document getDocument(String text, long lastAddress, String filename);
+	Document getDocument(String text, long address, String filename);
 
+	String getDocumentString(long address) throws IOException;
+	String getFilename(); //forces filename attribute;
 	
 }

@@ -1107,6 +1107,9 @@ stopWords.add("cx");
               if (ch < 0) break;
               System.out.print((char)ch);
            }
+         	
+         in.close();
+         
          }
          catch (IOException e)
          {  System.out.println("error reading " + args[i]);
@@ -1117,6 +1120,7 @@ stopWords.add("cx");
       {  System.out.println("file " + args[i] + " not found");
          break;
       }
+     
    }
    
 }

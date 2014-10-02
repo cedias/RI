@@ -1,8 +1,12 @@
 package parsing;
 
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import classes.Document;
 
@@ -15,6 +19,11 @@ public class CisiParser implements DocParser {
 	private List<String> keywords = null;
 	private String text = null;
 	private List<Integer> links = null;
+	private String filename;
+	
+	public CisiParser(String filename){
+		this.filename = filename;
+	}
 	
 	@Override
 	public Document getDocument(String text, long lastAddress, String filename) {
@@ -74,9 +83,6 @@ public class CisiParser implements DocParser {
 			
 			
 		}
-		
-	
-			
 			
 		
 	}
@@ -90,6 +96,35 @@ public class CisiParser implements DocParser {
 			System.err.println("Error in IDPARSE of terxt: "+text);
 			return 0;
 		}
+	}
+
+	@Override
+	public String getDocumentString(long address) throws IOException {
+		Pattern pattern = Pattern.compile("\\.I ");
+		Matcher matcher;
+		StringBuffer docBuff = new StringBuffer();
+		
+		RandomAccessFile raf = new RandomAccessFile(filename,"r");
+		raf.seek(address);
+		
+		String line = raf.readLine();
+		docBuff.append(line+"\n");
+		
+		matcher = pattern.matcher(line);
+		while(!matcher.find()){
+			line = raf.readLine();
+			docBuff.append(line+"\n");
+			matcher = pattern.matcher(line);
+		}
+		this.parseCisiText(docBuff.toString());
+		raf.close();
+		
+		return this.text;
+	}
+
+	@Override
+	public String getFilename() {
+		return filename;
 	}
 	
 	
