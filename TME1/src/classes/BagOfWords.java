@@ -1,13 +1,16 @@
 package classes;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-public class BagOfWords {
+public class BagOfWords implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+	
 	HashMap<String, Integer> bow = new HashMap<String,Integer>();
 	
 	public int getId(String word){

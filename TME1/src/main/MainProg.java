@@ -11,7 +11,10 @@ public class MainProg {
 		String filename = "cisi/cisi.txt";
 		Index index = new Index(filename, new CisiParser(filename), "cisi");
 		SparseVector sv = index.getTfsForDoc(1);
+		SparseVector sv2 = index.getTfsForStem("intern");
+		
 		System.out.println(sv.toString());
+		System.out.println(sv2.toString());
 	}
 
 }

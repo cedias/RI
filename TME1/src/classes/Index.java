@@ -1,7 +1,13 @@
 package classes;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
@@ -16,6 +22,11 @@ import parsing.DocumentIter;
 
 public class Index {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String name;
 	private String filename;
 	private RandomAccessFile index;
@@ -29,13 +40,41 @@ public class Index {
 	
 	
 	
-	public Index(String filename, DocParser parser, String indexName) throws IOException {
+	public Index(String filename, DocParser parser, String indexName) throws IOException{
 		super();	
 		this.name = indexName;
 		this.filename = filename;
 		this.parser = parser;
-		this.bow = new BagOfWords();
-		buildIndexs();	
+		
+		try{
+			File bowFile =  new File(filename+".bow") ;
+			File docsFile =  new File(filename+".docs") ;
+			File stemsFile =  new File(filename+".stems") ;
+			File addressFile =  new File(filename+".addrs") ;
+			index = new RandomAccessFile(name+"_index", "rw");
+			inverted_index = new RandomAccessFile(name+"_inverted", "rw");
+			
+			ObjectInputStream ois =  new ObjectInputStream(new FileInputStream(bowFile)) ;
+			this.bow = (BagOfWords) ois.readObject() ;
+			ois.close();
+			
+			ois =  new ObjectInputStream(new FileInputStream(docsFile)) ;
+			this.docs = (HashMap<Integer, Long>) ois.readObject() ;
+			ois.close();
+			
+			ois =  new ObjectInputStream(new FileInputStream(stemsFile)) ;
+			this.stems = (HashMap<Integer, Long>) ois.readObject() ;
+			ois.close();
+			
+			ois =  new ObjectInputStream(new FileInputStream(addressFile)) ;
+			this.docsAdress = (HashMap<Integer, Long>) ois.readObject() ;
+			ois.close();
+		}
+		catch(Exception e){
+			this.bow = new BagOfWords();
+			buildIndexs();	
+		}
+		
 	}
 	
 
@@ -80,24 +119,30 @@ public class Index {
 		
 	}
 	
-	public SparseVector getTfsForStem(int stemId) throws IOException{
+	public SparseVector getTfsForStem(String stem) throws IOException{
+		
+		if(!bow.containsKey(stem)){
+			return null;
+		}
+		int stemId = bow.getId(stem);
+		System.out.println("stemid:" +stemId);
 		if(!docs.containsKey(stemId)){
 			System.err.println("no stem with id:"+ stemId);
 			return null;
 		}
-		
+		int readInt;
 		inverted_index.seek(stems.get(stemId));
-		inverted_index.readInt(); //reads Stemid; --TODO add check same ID ?
+		readInt = inverted_index.readInt(); //reads Stemid;
 		HashMap<Integer,Integer> docsRead = new HashMap<Integer,Integer>();
-		
+		System.out.println("read:"+readInt);
 		boolean docType = true;
 		int docId=0;
 		int dfCount=0;
 		
 		while(true){
 			
-			int readInt = index.readInt();
-			
+			readInt = index.readInt();
+			System.out.println("read:"+readInt);
 			if(readInt == -1)
 				break; //end
 			
@@ -124,7 +169,7 @@ public class Index {
 		
 		docs = new HashMap<Integer,Long>();
 		stems = new HashMap<Integer,Long>();
-		
+		docsAdress = new HashMap<Integer,Long>();
 		index = new RandomAccessFile(name+"_index", "rw");
 		inverted_index = new RandomAccessFile(name+"_inverted", "rw");
 		
@@ -143,7 +188,6 @@ public class Index {
 		 */
 		int cpt = 0;
 		for(Document d: dociter){
-			
 			docsAdress.put(d.getId(),d.getFileAdress());
 			
 			cpt++;
@@ -208,7 +252,7 @@ public class Index {
 					inverted_index.seek(stems.get(id));
 					
 					while(inverted_index.readInt() != 0 );
-					
+					inverted_index.seek(inverted_index.getFilePointer()-4);
 					
 					inverted_index.writeInt(d.getId());
 					inverted_index.writeInt(tf);
@@ -235,7 +279,31 @@ public class Index {
 			
 		}
 		System.out.println("Inverted Index created");
+		System.out.println("saving index");
+		this.saveIndex(filename);
+	}
 	
+	public void saveIndex(String filename) throws IOException{
+		File bowFile =  new File(filename+".bow") ;
+		File docsFile =  new File(filename+".docs") ;
+		File stemsFile =  new File(filename+".stems") ;
+		File addressFile =  new File(filename+".addrs") ;
+
+		ObjectOutputStream oos =  new ObjectOutputStream(new FileOutputStream(bowFile)) ;
+		oos.writeObject(this.bow) ;
+		oos.close();
+		
+		oos =  new ObjectOutputStream(new FileOutputStream(docsFile)) ;
+		oos.writeObject(this.docs) ;
+		oos.close();
+		
+		oos =  new ObjectOutputStream(new FileOutputStream(stemsFile)) ;
+		oos.writeObject(this.stems) ;
+		oos.close();
+		
+		oos =  new ObjectOutputStream(new FileOutputStream(addressFile)) ;
+		oos.writeObject(this.docsAdress) ;
+		oos.close();
 	}
 	
 
