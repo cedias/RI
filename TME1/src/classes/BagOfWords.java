@@ -10,22 +10,22 @@ import java.util.Set;
 public class BagOfWords implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
+
 	HashMap<String, Integer> bow = new HashMap<String,Integer>();
-	
+
 	public int getId(String word){
-		
+
 		if(bow.containsKey(word))
 			return bow.get(word);
 		else{
 			bow.put(word, bow.size());
 			return bow.size()-1;
 		}
-		
+
 	}
-	
+
 	/* ----------- DELEGATES FROM HASHMAP --------------*/
-	
+
 	public int size(){
 		return bow.size();
 	}
@@ -89,9 +89,9 @@ public class BagOfWords implements Serializable{
 	public Set<Entry<String, Integer>> entrySet() {
 		return bow.entrySet();
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 }
