@@ -1,5 +1,7 @@
 package classes;
 
+import interfaces.DocParser;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,7 +16,6 @@ import classes.BagOfWords;
 import classes.SparseVector;
 import classes.Document;
 import classes.Stemmer;
-import parsing.DocParser;
 import parsing.DocumentIter;
 
 
@@ -118,7 +119,7 @@ public class Index {
 		return new SparseVector(bow.size(), stemsRead);
 	}
 
-	public SparseVector getTfsForStem(String stem) throws IOException{
+	public HashMap<Integer,Integer> getTfsForStem(String stem) throws IOException{
 
 		if(!bow.containsKey(stem)){
 			return null;
@@ -161,12 +162,19 @@ public class Index {
 			}
 			docType = !docType ;
 		}
-		return new SparseVector(bow.size(), docsRead);
+		return docsRead;
 	}
 
 	public String getStringDoc(int docId) throws IOException{
 		return parser.getDocumentString(docsAdress.get(docId)) ;
 	}
+	
+	
+
+	public BagOfWords getBow() {
+		return bow;
+	}
+
 
 
 	private void buildIndexs() throws IOException {

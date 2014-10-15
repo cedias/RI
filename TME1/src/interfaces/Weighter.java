@@ -1,4 +1,4 @@
-package vectorModels;
+package interfaces;
 
 import java.util.HashMap;
 
@@ -7,7 +7,7 @@ import classes.SparseVector;
 public interface Weighter {
 
 	SparseVector getDocWeightsForDoc(String idDoc);
-	SparseVector getDocWeightsForStem(String stem);
+	HashMap<Integer, Integer> getDocWeightsForStem(String stem);
 	SparseVector getWeightsForQuery(HashMap<String, Integer> query);
 	
 	

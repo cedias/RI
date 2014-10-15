@@ -1,8 +1,12 @@
 package vectorModels;
 
+import interfaces.Weighter;
+
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
+import classes.BagOfWords;
 import classes.Index;
 import classes.SparseVector;
 
@@ -48,8 +52,14 @@ public class SimpleWeighter implements Weighter {
 
 	@Override
 	public SparseVector getWeightsForQuery(HashMap<String, Integer> query) {
+		BagOfWords bow = index.getBow();
 		
-		return null;
+		SparseVector res = new SparseVector(bow.size());
+		
+		for(Entry<String, Integer> entry : query.entrySet())
+			res.setValue(bow.get(entry.getKey()), 1.0);
+		
+		return res;
 	}
 
 }
