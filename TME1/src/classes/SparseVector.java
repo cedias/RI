@@ -27,7 +27,8 @@ public class SparseVector {
 	}
 
 	public void setValue(int index, double value){
-		vector.put(index, value);
+		if(value != 0.0)
+			vector.put(index, value);
 	}
 	
 	public Double getValue(int index){

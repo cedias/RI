@@ -10,6 +10,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map.Entry;
 
 import classes.BagOfWords;
@@ -338,6 +339,9 @@ public class Index {
 		oos.close();
 	}
 
+	public HashSet<Integer> docIdSet(){
+		return new HashSet<Integer>(docs.keySet());
+	}
 
 
 }

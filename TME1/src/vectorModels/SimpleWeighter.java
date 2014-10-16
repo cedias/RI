@@ -40,7 +40,7 @@ public class SimpleWeighter implements Weighter {
 	}
 
 	@Override
-	public SparseVector getDocWeightsForStem(String stem) {
+	public HashMap<Integer, Integer> getDocWeightsForStem(String stem) {
 		try {
 			return index.getTfsForStem(stem);		
 			
@@ -57,7 +57,8 @@ public class SimpleWeighter implements Weighter {
 		SparseVector res = new SparseVector(bow.size());
 		
 		for(Entry<String, Integer> entry : query.entrySet())
-			res.setValue(bow.get(entry.getKey()), 1.0);
+			if(bow.containsKey(entry.getKey()))
+				res.setValue(bow.get(entry.getKey()), 1.0);
 		
 		return res;
 	}
