@@ -1,20 +1,31 @@
 package classes;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 
-public class Query extends Document {
+
+public class Query {
+
+	public HashSet<Integer> releventDocuments;
+	public Document d;
 	
-	int id;
-	HashMap<String,Integer> query;
+	public Query(Document d, HashSet<Integer> releventDocuments) {
+		this.d = d;
+		this.releventDocuments = releventDocuments;
+		
+		if(releventDocuments == null)
+			System.err.println("Query #"+d.id+" doesn't have any relevent documents");
+	}
 	
-	
-	public Query(int id, String titre, Date date, String auteur,
-			List<String> keywords, String text, List<Integer> links,
-			String filename, Long fileAdress) {
-		super(id, titre, date, auteur, keywords, text, links, filename, fileAdress);
+	public String toString(){
+		try {
+			return d.toString()+"\n"+releventDocuments.toString();
+		} catch (NullPointerException e) {
+			return d.toString();
+		}
 		
 	}
+	
+	
+	
 
 }

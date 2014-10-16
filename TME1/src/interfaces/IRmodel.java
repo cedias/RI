@@ -1,17 +1,17 @@
 package interfaces;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 import classes.Index;
+import classes.Rank;
 
 public interface IRmodel {
 
 	Map<Integer, Double> getScores(HashMap<String, Integer> query) throws IOException;
-	TreeMap<Integer, Double> getRanking(HashMap<String, Integer> query) throws IOException;
+	ArrayList<Rank> getRanking(HashMap<String, Integer> query) throws IOException;
 	
 	void setIndex(Index index);
 	

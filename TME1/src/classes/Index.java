@@ -26,6 +26,7 @@ public class Index {
 	/**
 	 *
 	 */
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 
 	private String name;
@@ -41,6 +42,7 @@ public class Index {
 
 
 
+	@SuppressWarnings("unchecked")
 	public Index(String filename, DocParser parser, String indexName) throws IOException{
 		super();
 		this.name = indexName;

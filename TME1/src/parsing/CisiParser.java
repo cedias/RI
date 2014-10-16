@@ -34,7 +34,7 @@ public class CisiParser implements DocParser {
 	}
 
 	private void parseCisiText(String text){
-		
+		System.out.println(text);
 		this.id = getId(text);
 		
 		
@@ -85,6 +85,31 @@ public class CisiParser implements DocParser {
 			
 			
 		}
+		
+		switch(currentCat){
+		case '#':
+			break;
+		case 'N': //Cacm
+			break;
+		case 'T':
+			this.titre = buf.toString().trim();
+			break;
+		case 'B':
+			this.date = null;
+			break;
+		case 'A':
+			this.auteur = buf.toString().trim();
+			break;
+		case 'K':
+			this.keywords = Arrays.asList(buf.toString().trim().split(","));
+			break;
+		case 'W':
+			this.text = buf.toString().trim();
+			break;
+		case 'X':
+			links = null;
+			break;
+	}
 			
 		
 	}
