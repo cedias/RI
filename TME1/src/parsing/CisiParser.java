@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 import classes.Document;
 
 public class CisiParser implements DocParser {
-	
+
 	private int id;
 	private String titre = null;
 	private Date date = null;
@@ -22,11 +22,11 @@ public class CisiParser implements DocParser {
 	private String text = null;
 	private List<Integer> links = null;
 	private String filename;
-	
+
 	public CisiParser(String filename){
 		this.filename = filename;
 	}
-	
+
 	@Override
 	public Document getDocument(String text, long lastAddress, String filename) {
 		parseCisiText(text);
@@ -34,18 +34,17 @@ public class CisiParser implements DocParser {
 	}
 
 	private void parseCisiText(String text){
-		System.out.println(text);
 		this.id = getId(text);
-		
-		
+
+
 		String[] lines = text.split("\n");
 		char currentCat = '#';
 		StringBuffer buf = new StringBuffer();
-		
+
 		for(String line : lines){
-		
+
 			if(line.matches("^\\.(T|B|A|K|W|X|N)$")){
-				
+
 				switch(currentCat){
 					case '#':
 						break;
@@ -70,22 +69,22 @@ public class CisiParser implements DocParser {
 						links = null;
 						break;
 				}
-				
-				
-				
+
+
+
 				currentCat = line.charAt(1);
 				buf.setLength(0);
 				continue;
 			}
-			
+
 			if(currentCat == '#')
 				continue;
-			
+
 			buf.append(line+'\n');
-			
-			
+
+
 		}
-		
+
 		switch(currentCat){
 		case '#':
 			break;
@@ -110,10 +109,10 @@ public class CisiParser implements DocParser {
 			links = null;
 			break;
 	}
-			
-		
+
+
 	}
-	
+
 
 	private int getId(String text) {
 		try{
@@ -130,13 +129,13 @@ public class CisiParser implements DocParser {
 		Pattern pattern = Pattern.compile("\\.I ");
 		Matcher matcher;
 		StringBuffer docBuff = new StringBuffer();
-		
+
 		RandomAccessFile raf = new RandomAccessFile(filename,"r");
 		raf.seek(address);
-		
+
 		String line = raf.readLine();
 		docBuff.append(line+"\n");
-		
+
 		matcher = pattern.matcher(line);
 		while(!matcher.find()){
 			line = raf.readLine();
@@ -145,7 +144,7 @@ public class CisiParser implements DocParser {
 		}
 		this.parseCisiText(docBuff.toString());
 		raf.close();
-		
+
 		return this.text;
 	}
 
@@ -153,7 +152,7 @@ public class CisiParser implements DocParser {
 	public String getFilename() {
 		return filename;
 	}
-	
-	
+
+
 
 }
