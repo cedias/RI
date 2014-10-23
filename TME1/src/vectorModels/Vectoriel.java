@@ -60,7 +60,6 @@ public class Vectoriel implements IRmodel {
 			}
 				
 		}
-		System.out.println(relDocs);
 		scores = new HashMap<Integer, Double>();
 		
 		for(Entry<Integer,SparseVector> rel: relDocs.entrySet()){

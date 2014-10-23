@@ -41,6 +41,11 @@ public class QueryIter implements Iterable<Query> {
 		
 	}
 	
+	public void reset() throws FileNotFoundException{
+		raf = new RandomAccessFile(filename,"r");
+		this.start = true;
+		this.end = true;
+	}
 
 	@Override
 	public Iterator<Query> iterator() {
