@@ -168,11 +168,22 @@ public class Index {
 		return docsRead;
 	}
 
+	public double getIDFStem(String stem) throws IOException{
+		HashMap<Integer,Integer> frequencies = getTfsForStem(stem);
+		int stemCount = 0;
+		for(int i: frequencies.values()){
+			stemCount+=i;
+		}
+
+		return Math.log(docs.size()/(stemCount+0.0));
+
+	}
+
 	public String getStringDoc(int docId) throws IOException{
 		return parser.getDocumentString(docsAdress.get(docId)) ;
 	}
-	
-	
+
+
 
 	public BagOfWords getBow() {
 		return bow;

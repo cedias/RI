@@ -1,7 +1,5 @@
 package plot;
 
-import java.util.ArrayList;
-
 import com.xeiam.xchart.Chart;
 import com.xeiam.xchart.QuickChart;
 import com.xeiam.xchart.SwingWrapper;
