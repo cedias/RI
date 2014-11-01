@@ -29,14 +29,14 @@ public class MainProg {
 	public static void main(String[] args) throws IOException {
 
 
-		String filename = "cisi/cisi.txt";
-		Index index = new Index(filename, new CisiParser(filename), "cisi");
+		String filename = "cacm/cacm.txt";
+		Index index = new Index(filename, new CisiParser(filename), "cacm");
 
 		Weighter w = new SimpleWeighter(index);
 		Weighter w2 = new TFWeighter(index);
 		Weighter w3 = new TFIDFWeighter(index);
 		Vectoriel vect = new Vectoriel(index, w2,false);
-		QueryIter queries = new QueryIter("cisi/cisi.qry", "cisi/cisi.rel", new CisiParser("cisi/cisi.qry"));
+		QueryIter queries = new QueryIter("cacm/cacm.qry", "cacm/cacm.rel", new CisiParser("cacm/cacm.qry"));
 
 		ArrayList<IRmodel> models = new ArrayList<IRmodel>();
 		ArrayList<EvalMeasure> mesures = new ArrayList<EvalMeasure>();

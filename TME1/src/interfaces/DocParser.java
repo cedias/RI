@@ -10,5 +10,6 @@ public interface DocParser {
 
 	String getDocumentString(long address) throws IOException;
 	String getFilename(); //forces filename attribute;
-	
+	void reset();
+
 }

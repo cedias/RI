@@ -28,6 +28,16 @@ public class CisiParser implements DocParser {
 	}
 
 	@Override
+	public void reset() {
+		titre = null;
+		date = null;
+		auteur = null;
+		keywords = null;
+		text = null;
+		links = null;
+	}
+
+	@Override
 	public Document getDocument(String text, long lastAddress, String filename) {
 		parseCisiText(text);
 		return new Document(this.id, this.titre, this.date, this.auteur, this.keywords, this.text, this.links, filename, lastAddress);
@@ -152,6 +162,8 @@ public class CisiParser implements DocParser {
 	public String getFilename() {
 		return filename;
 	}
+
+
 
 
 

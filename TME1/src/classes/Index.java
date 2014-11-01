@@ -17,6 +17,7 @@ import classes.BagOfWords;
 import classes.SparseVector;
 import classes.Document;
 import classes.Stemmer;
+import parsing.CisiParser;
 import parsing.DocumentIter;
 
 
@@ -192,7 +193,6 @@ public class Index {
 
 
 	private void buildIndexs() throws IOException {
-
 		docs = new HashMap<Integer,Long>();
 		stems = new HashMap<Integer,Long>();
 		docsAdress = new HashMap<Integer,Long>();
@@ -218,12 +218,12 @@ public class Index {
 			docsAdress.put(d.getId(),d.getFileAdress());
 
 			if(d.getId() == 0){
-				System.out.println("GGGEQFqfefqfqqeffeqfqqffqe");
+				System.out.println("id == 0");
 				System.exit(1);
 			}
 
 			cpt++;
-			System.out.println("cpt:"+cpt);
+			System.out.println("doc:"+cpt);
 			//Format: id int-id int-tf... -1
 			docStems.putAll(stemmer.porterStemmerHash(d.getText()));
 			docStems.putAll(stemmer.porterStemmerHash(d.getTitre()));
@@ -238,12 +238,7 @@ public class Index {
 
 			for(Entry<String, Integer> s : docStems.entrySet()){
 
-
 				id = bow.getId(s.getKey());
-				tf = s.getValue();
-				index.writeInt(id);
-				index.writeInt(tf);
-
 
 				if(stemDocCount.containsKey(id))
 					stemDocCount.put(id, stemDocCount.get(id)+1);
@@ -259,14 +254,17 @@ public class Index {
 		/*
 		 * Second Iteration, building inverted index
 		 */
+		parser.reset();
 		dociter = new DocumentIter(filename, parser); //dociter works only once. -- TODO add exception "already used"
 		long endAddress = 0;
 		int cpt2=0;
 		HashMap<Integer,Integer> writeCount = new HashMap<Integer,Integer>(1500);
+		docStems.clear();
+
 		for(Document d: dociter){
 
 			cpt2++;
-			System.out.println("cpt:"+cpt2+"/"+cpt);
+			System.out.println("doc:"+cpt2+"/"+cpt);
 
 			//Format: id-stem id-doc tf...-1 (all ints)
 			//get stems
@@ -279,7 +277,9 @@ public class Index {
 
 
 			for(Entry<String, Integer> s : docStems.entrySet()){
-				id = bow.getId(s.getKey());
+
+				id = bow.get(s.getKey());
+
 				tf = s.getValue();
 
 
@@ -294,6 +294,8 @@ public class Index {
 					if(readId != id)
 						System.err.println("Stem: "+s.getKey()+  " - Id read differs, read "+readId+" expecting "+id +" address="+stems.get(id) +" written:" +written + "/"+stemDocCount.get(id));
 
+					if(written > stemDocCount.get(id))
+						System.err.println("written to much: Stem: "+s.getKey() +" ("+written+"/"+stemDocCount.get(id)+ ")");
 
 					inverted_index.skipBytes(4*written*2);
 					inverted_index.writeInt(d.getId());
