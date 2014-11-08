@@ -63,6 +63,7 @@ public class EvalIRModel {
 
 
 		for(Query query: queries){
+			System.out.println("Processing query #"+query.d.getId());
 			if(query.releventDocuments == null)
 			{
 				System.err.println("Query #"+query.d.getId()+" doesn't have any relevant documents");
@@ -70,8 +71,8 @@ public class EvalIRModel {
 			}
 
 			HashMap<String, Integer> queryText = st.porterStemmerHash(query.d.getText()); //TODO -- use all query info ?
-			
-			
+			queryText.remove(" * ");
+
 			for(IRmodel model: models){
 				ArrayList<Rank> ranking = model.getRanking(queryText);
 				IRList result = new IRList(query, ranking);
@@ -95,7 +96,6 @@ public class EvalIRModel {
 				}
 			}
 			queryCounter++;
-
 		}
 
 

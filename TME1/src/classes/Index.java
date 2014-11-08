@@ -123,9 +123,10 @@ public class Index {
 		return new SparseVector(bow.size(), stemsRead);
 	}
 
-	public HashMap<Integer,Integer> getTfsForStem(String stem) throws IOException{
+	public HashMap<Integer, Double> getTfsForStem(String stem) throws IOException{
 
 		if(!bow.containsKey(stem)){
+			System.err.println("no stem: "+stem);
 			return null;
 		}
 
@@ -143,7 +144,7 @@ public class Index {
 		if(readInt != stemId)
 			System.err.println("Read wrong Stem");
 
-		HashMap<Integer,Integer> docsRead = new HashMap<Integer,Integer>();
+		HashMap<Integer,Double> docsRead = new HashMap<Integer,Double>();
 
 		boolean docType = true;
 
@@ -162,7 +163,7 @@ public class Index {
 			}
 			else{
 				dfCount = readInt;
-				docsRead.put(docId,dfCount);
+				docsRead.put(docId,dfCount+0.0);
 			}
 			docType = !docType ;
 		}
@@ -170,13 +171,13 @@ public class Index {
 	}
 
 	public double getIDFStem(String stem) throws IOException{
-		HashMap<Integer,Integer> frequencies = getTfsForStem(stem);
-		int stemCount = 0;
-		for(int i: frequencies.values()){
+		HashMap<Integer,Double> frequencies = getTfsForStem(stem);
+		double stemCount = 0;
+		for(double i: frequencies.values()){
 			stemCount+=i;
 		}
 
-		return Math.log(docs.size()/(stemCount+0.0));
+		return Math.log(docs.size()/(stemCount));
 
 	}
 

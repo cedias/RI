@@ -41,29 +41,21 @@ public class Vectoriel implements IRmodel {
 
 		BagOfWords bow = index.getBow();
 		HashMap<Integer, Double> scores;
-		HashMap<Integer,Integer> stemWeights;
+		HashMap<Integer,Double> stemWeights;
 		SparseVector queryWeights = weighter.getWeightsForQuery(query);
 		HashMap<Integer,SparseVector> relDocs = new HashMap<Integer,SparseVector>();
 
 		for(Entry<String, Integer> e : query.entrySet()){
 
 			stemWeights = weighter.getDocWeightsForStem(e.getKey());
+
 			if(stemWeights != null){
-				for(Entry<Integer, Integer> doc : stemWeights.entrySet()){
-
-
-					if(!relDocs.containsKey(doc.getKey())){ //relevant doc doesn't exist
-						relDocs.put(doc.getKey(), new SparseVector(bow.size()));
-					}
-
-					relDocs.get(doc.getKey()).setValue(bow.get(e.getKey()), doc.getValue());
-
-					//relDocs.put(doc.getKey(),weighter.getDocWeightsForDoc(doc.getKey().toString()));
+				for(Entry<Integer, Double> doc : stemWeights.entrySet()){
+					relDocs.put(doc.getKey(),weighter.getDocWeightsForDoc(doc.getKey().toString()));
 				}
 			}
 
 		}
-		//System.out.println(relDocs.toString());
 		scores = new HashMap<Integer, Double>();
 
 		for(Entry<Integer,SparseVector> rel: relDocs.entrySet()){
@@ -72,7 +64,7 @@ public class Vectoriel implements IRmodel {
 			else
 				scores.put(rel.getKey(),rel.getValue().dotProd(queryWeights));
 		}
-		System.out.println(scores);
+
 		return scores;
 	}
 
@@ -87,14 +79,15 @@ public class Vectoriel implements IRmodel {
 			ranking.add(new Rank(score.getKey(),score.getValue()));
 		}
 
-		Collections.sort(ranking);
+		Collections.sort(ranking,Collections.reverseOrder());
 
 		HashSet<Integer> relevant = new HashSet<Integer>(scores.keySet());
 		HashSet<Integer> irrelevant = index.docIdSet();
 		irrelevant.removeAll(relevant);
 
-		for(Integer idIrr: irrelevant)
-			ranking.add(new Rank(idIrr, 1));
+		for(Integer idIrr: irrelevant){
+			ranking.add(new Rank(idIrr, -1));
+		}
 
 		return ranking;
 	}

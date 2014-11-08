@@ -37,7 +37,7 @@ public class LOGTFIDFWeighter implements Weighter {
 	}
 
 	@Override
-	public HashMap<Integer, Integer> getDocWeightsForStem(String stem) { //TODO CHANGE TO DOUBLE
+	public HashMap<Integer, Double> getDocWeightsForStem(String stem) {
 		try {
 			return index.getTfsForStem(stem);
 

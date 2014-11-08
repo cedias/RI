@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+import com.sun.jndi.url.dns.dnsURLContext;
+
 import classes.BagOfWords;
 import classes.Index;
 import classes.SparseVector;
@@ -23,11 +25,16 @@ public class TFIDFWeighter implements Weighter {
 		this.index = index;
 	}
 
+
 	@Override
 	public SparseVector getDocWeightsForDoc(String idDoc) {
 		int id = Integer.parseInt(idDoc);
 		try {
-			return index.getTfsForDoc(id);
+			SparseVector docW =  index.getTfsForDoc(id);
+			for(Double d : docW.values()){
+				d = 1+Math.log(d);
+			}
+			return docW;
 
 		} catch (IOException e) {
 			System.out.println("Error on docWeights");
@@ -37,9 +44,19 @@ public class TFIDFWeighter implements Weighter {
 	}
 
 	@Override
-	public HashMap<Integer, Integer> getDocWeightsForStem(String stem) {
+	public HashMap<Integer, Double> getDocWeightsForStem(String stem) {
 		try {
-			return index.getTfsForStem(stem);
+
+			HashMap<Integer, Double> docW =  index.getTfsForStem(stem);
+
+			if(docW == null){
+				return null;
+			}
+
+			for(Double d : docW.values()){
+				d = 1+Math.log(d);
+			}
+			return docW;
 
 		} catch (IOException e) {
 			System.out.println("Error on docWeights");

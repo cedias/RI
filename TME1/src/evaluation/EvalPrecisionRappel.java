@@ -36,6 +36,7 @@ public class EvalPrecisionRappel implements EvalMeasure {
 		double maxPrecision = -1;
 
 		for(Rank r : results){
+
 			if(relDocs.contains(r.doc))
 				relCount++;
 			else

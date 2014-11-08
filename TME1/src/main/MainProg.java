@@ -32,9 +32,7 @@ public class MainProg {
 		String filename = "cisi/cisi.txt";
 		Index index = new Index(filename, new CisiParser(filename), "cisi");
 
-		Weighter w = new SimpleWeighter(index);
-		Weighter w2 = new TFWeighter(index);
-		Weighter w3 = new TFIDFWeighter(index);
+		Weighter w = new TFIDFWeighter(index);
 		Vectoriel vect = new Vectoriel(index, w,false);
 		QueryIter queries = new QueryIter("cisi/cisi.qry", "cisi/cisi.rel", new CisiParser("cisi/cisi.qry"));
 
@@ -43,7 +41,7 @@ public class MainProg {
 
 		models.add(vect);
 
-		mesures.add(new EvalPrecisionRappel(100));
+		mesures.add(new EvalPrecisionRappel(10));
 
 
 		//mesures.add(new EvalPrecisionMoyenne());
@@ -56,7 +54,7 @@ public class MainProg {
 		//System.out.println(eval.get(1).size());
 
 		Double[] yvals = eval.get(0).toArray(new Double[eval.get(0).size()]);
-		Double[] xvals = EvalIRModel.getRappelLevels(100);
+		Double[] xvals = EvalIRModel.getRappelLevels(10);
 
 		PlotArray pl = new PlotArray(xvals, yvals, "Rappel", "Précision", "PR-102");
 		pl.plot();

@@ -39,7 +39,7 @@ public class TFWeighter implements Weighter {
 	}
 
 	@Override
-	public HashMap<Integer, Integer> getDocWeightsForStem(String stem) {
+	public HashMap<Integer, Double> getDocWeightsForStem(String stem) {
 		try {
 			return index.getTfsForStem(stem);
 

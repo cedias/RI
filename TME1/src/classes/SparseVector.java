@@ -11,6 +11,8 @@ public class SparseVector {
 	HashMap<Integer, Double> vector = new HashMap<Integer,Double>();
 	int size;
 	int sumComp;
+	double norm = -1;
+	boolean newValues = false;
 
 	public SparseVector(int size) {
 		super();
@@ -33,11 +35,32 @@ public class SparseVector {
 		}
 
 		if(value != 0.0){
+			this.newValues = true;
 			vector.put(index, value);
 			return;
 		}
 
 		throw new IndexOutOfBoundsException("Value Error => "+ value);
+	}
+
+	public double getNorm(){
+		if(norm != -1 && newValues == false){
+			return this.norm;
+		}
+
+		double sum = 0;
+
+		for(double val :this.values())
+			sum += (val*val);
+
+		this.norm = Math.sqrt(sum);
+		this.newValues = false;
+
+		if(this.norm < 0){
+			System.err.println("Norm is less than 0");
+		}
+
+		return this.norm;
 	}
 
 	public Double getValue(int index){
@@ -69,25 +92,12 @@ public class SparseVector {
 	}
 
 	public Double cosSim(SparseVector b){
+		Double prod =  this.dotProd(b)/(this.getNorm()*b.getNorm());
 
-		double sumA = 0;
-		double sumB = 0;
+		if(prod<-1 || prod >1)
+			throw new NumberFormatException("cos sim = "+prod +" != [-1 1] \n dot product="+this.dotProd(b)+ "\n norm object = "+this.getNorm()+" norm other ="+b.getNorm());
 
-
-		for(double val :this.values())
-			sumA += (val*val);
-
-		for(double val :b.values())
-			sumB += (val*val);
-
-		double prod = sumA*sumB;
-
-		if(prod == 0){
-			System.err.println("Caution, dividing by 0 on cosSim, One vector might be null");
-		}
-
-
-		return this.dotProd(b)/Math.sqrt(sumA*sumB);
+		return prod;
 	}
 
 

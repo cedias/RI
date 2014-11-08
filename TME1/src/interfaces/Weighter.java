@@ -7,8 +7,8 @@ import classes.SparseVector;
 public interface Weighter {
 
 	SparseVector getDocWeightsForDoc(String idDoc);
-	HashMap<Integer, Integer> getDocWeightsForStem(String stem);
+	HashMap<Integer, Double> getDocWeightsForStem(String stem);
 	SparseVector getWeightsForQuery(HashMap<String, Integer> query);
-	
-	
+
+
 }
