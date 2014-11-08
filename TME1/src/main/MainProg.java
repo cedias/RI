@@ -29,14 +29,14 @@ public class MainProg {
 	public static void main(String[] args) throws IOException {
 
 
-		String filename = "cacm/cacm.txt";
-		Index index = new Index(filename, new CisiParser(filename), "cacm");
+		String filename = "cisi/cisi.txt";
+		Index index = new Index(filename, new CisiParser(filename), "cisi");
 
 		Weighter w = new SimpleWeighter(index);
 		Weighter w2 = new TFWeighter(index);
 		Weighter w3 = new TFIDFWeighter(index);
-		Vectoriel vect = new Vectoriel(index, w2,false);
-		QueryIter queries = new QueryIter("cacm/cacm.qry", "cacm/cacm.rel", new CisiParser("cacm/cacm.qry"));
+		Vectoriel vect = new Vectoriel(index, w,false);
+		QueryIter queries = new QueryIter("cisi/cisi.qry", "cisi/cisi.rel", new CisiParser("cisi/cisi.qry"));
 
 		ArrayList<IRmodel> models = new ArrayList<IRmodel>();
 		ArrayList<EvalMeasure> mesures = new ArrayList<EvalMeasure>();
@@ -44,17 +44,23 @@ public class MainProg {
 		models.add(vect);
 
 		mesures.add(new EvalPrecisionRappel(100));
+
+
 		//mesures.add(new EvalPrecisionMoyenne());
 
 
 		//Map<Integer, List<List<Double>>> eval = EvalIRModel.Evaluate(models, mesures, queries);
 		List<List<Double>> eval = EvalIRModel.EvaluateMean(models, mesures, queries);
 
+
+		//System.out.println(eval.get(1).size());
+
 		Double[] yvals = eval.get(0).toArray(new Double[eval.get(0).size()]);
 		Double[] xvals = EvalIRModel.getRappelLevels(100);
 
 		PlotArray pl = new PlotArray(xvals, yvals, "Rappel", "Précision", "PR-102");
 		pl.plot();
+
 
 
 

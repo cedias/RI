@@ -34,6 +34,7 @@ public class Index {
 	private String filename;
 	private RandomAccessFile index;
 	private RandomAccessFile inverted_index;
+	private RandomAccessFile normalized_index;
 	private DocParser parser;
 
 	private BagOfWords bow;
@@ -57,6 +58,7 @@ public class Index {
 			File addressFile =  new File(name+".addrs") ;
 			index = new RandomAccessFile(name+"_index", "rw");
 			inverted_index = new RandomAccessFile(name+"_inverted", "rw");
+			normalized_index = new RandomAccessFile(name+"_normIndex", "rw");
 
 			ObjectInputStream ois =  new ObjectInputStream(new FileInputStream(bowFile)) ;
 			this.bow = (BagOfWords) ois.readObject() ;
@@ -104,7 +106,6 @@ public class Index {
 		int tfCount=0;
 
 		while(true){
-
 			readInt = index.readInt();
 
 			if(readInt == -1)
@@ -119,7 +120,6 @@ public class Index {
 			}
 			stemType = !stemType ;
 		}
-
 		return new SparseVector(bow.size(), stemsRead);
 	}
 
@@ -239,11 +239,16 @@ public class Index {
 			for(Entry<String, Integer> s : docStems.entrySet()){
 
 				id = bow.getId(s.getKey());
+				tf = s.getValue();
+				index.writeInt(id);
+				index.writeInt(tf);
 
 				if(stemDocCount.containsKey(id))
 					stemDocCount.put(id, stemDocCount.get(id)+1);
 				else
 					stemDocCount.put(id, 1);
+
+
 			}
 			index.writeInt(-1);
 

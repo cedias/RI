@@ -28,13 +28,12 @@ public class EvalPrecisionRappel implements EvalMeasure {
 		HashSet<Integer> relDocs = l.query.releventDocuments;
 		ArrayList<Double> eval = new ArrayList<Double>();
 
-		final double level = 1/nbLevels;
+		final double level = 1/(nbLevels+0.0);
 		int numLevel = 1;
 
 		int relCount = 0;
 		int irrelCount = 0;
-		double maxPrecision = 0;
-
+		double maxPrecision = -1;
 
 		for(Rank r : results){
 			if(relDocs.contains(r.doc))
@@ -44,17 +43,20 @@ public class EvalPrecisionRappel implements EvalMeasure {
 
 			double rap = relCount/(relDocs.size()+0.0);
 
-
-
 			if(rap >= numLevel*level){
 				numLevel++;
 				eval.add(relCount/(irrelCount+relCount+0.0));
 			}
 
+			if(relCount/(irrelCount+relCount+0.0)>1)
+			{
+				System.err.println("Precision-Rappel > 1");
+				System.err.println(eval.toString());
+			}
+
 			if(numLevel >= nbLevels)
 				break;
 		}
-
 		maxPrecision = 0;
 		for(int i = eval.size()-1;i>=0;i--)
 		{
@@ -63,7 +65,6 @@ public class EvalPrecisionRappel implements EvalMeasure {
 			else
 				maxPrecision = eval.get(i);
 		}
-
 
 		return eval;
 	}

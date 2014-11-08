@@ -4,6 +4,8 @@ import interfaces.IRmodel;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,13 +56,13 @@ public class EvalIRModel {
 	public static List<List<Double>> EvaluateMean(List<IRmodel> models, List<EvalMeasure> mesures, QueryIter queries) throws IOException{
 
 		ArrayList<List<Double>> results = new ArrayList<List<Double>>(mesures.size());
+		ArrayList<Double> maxlist = new ArrayList<Double>();
 		Stemmer st = new Stemmer();
 		int queryCounter = 0;
 		List<Double> finalList;
 
 
 		for(Query query: queries){
-
 			if(query.releventDocuments == null)
 			{
 				System.err.println("Query #"+query.d.getId()+" doesn't have any relevant documents");
@@ -68,7 +70,8 @@ public class EvalIRModel {
 			}
 
 			HashMap<String, Integer> queryText = st.porterStemmerHash(query.d.getText()); //TODO -- use all query info ?
-
+			
+			
 			for(IRmodel model: models){
 				ArrayList<Rank> ranking = model.getRanking(queryText);
 				IRList result = new IRList(query, ranking);
@@ -76,7 +79,6 @@ public class EvalIRModel {
 				for(int i=0;i<mesures.size();i++){
 					EvalMeasure mesure = mesures.get(i);
 					List<Double> eval = mesure.eval(result);
-
 
 					if(queryCounter == 0){
 						results.add(eval);
@@ -93,6 +95,7 @@ public class EvalIRModel {
 				}
 			}
 			queryCounter++;
+
 		}
 
 
@@ -102,6 +105,9 @@ public class EvalIRModel {
 
 		}
 
+
+System.out.println("maxlist");
+System.out.println(maxlist);
 		return results;
 
 	}
