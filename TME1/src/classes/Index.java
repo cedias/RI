@@ -38,7 +38,7 @@ public class Index {
 	private DocParser parser;
 
 	private BagOfWords bow;
-	private HashMap<Integer, Long> docs; //docs positions
+	private HashMap<Integer, Long> docs; //docs positions (-1 == number of words)
 	private HashMap<Integer, Long> stems; //stem positions
 	private HashMap<Integer, Long> docsAdress; //documents address in files
 
@@ -123,6 +123,10 @@ public class Index {
 		return new SparseVector(bow.size(), stemsRead);
 	}
 
+	public long getCorpusSize(){
+		return docs.get(-1);
+	}
+
 	public HashMap<Integer, Double> getTfsForStem(String stem) throws IOException{
 
 		if(!bow.containsKey(stem)){
@@ -170,6 +174,16 @@ public class Index {
 		return docsRead;
 	}
 
+	public int getCorpusTfsForStem(String stem) throws IOException{
+		HashMap<Integer, Double> tf = getTfsForStem(stem);
+		int sum = 0;
+		for(Double d:tf.values()){
+			sum+=d;
+		}
+
+		return sum;
+	}
+
 	public double getIDFStem(String stem) throws IOException{
 		HashMap<Integer,Double> frequencies = getTfsForStem(stem);
 		double stemCount = 0;
@@ -194,6 +208,7 @@ public class Index {
 
 
 	private void buildIndexs() throws IOException {
+		long sizeCorpus = 0;
 		docs = new HashMap<Integer,Long>();
 		stems = new HashMap<Integer,Long>();
 		docsAdress = new HashMap<Integer,Long>();
@@ -287,7 +302,7 @@ public class Index {
 				id = bow.get(s.getKey());
 
 				tf = s.getValue();
-
+				sizeCorpus += tf;
 
 				if(stems.containsKey(id)){ //if stems exist -> add doc
 
@@ -334,6 +349,9 @@ public class Index {
 		}
 		System.out.println("Inverted Index created");
 		System.out.println("saving index");
+
+		docs.put(-1, sizeCorpus); //sets number of words in corpus
+
 		this.saveIndex();
 	}
 

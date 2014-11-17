@@ -13,6 +13,7 @@ public class SparseVector {
 	int sumComp;
 	double norm = -1;
 	boolean newValues = false;
+	int sum = -1;
 
 	public SparseVector(int size) {
 		super();
@@ -41,6 +42,26 @@ public class SparseVector {
 		}
 
 		throw new IndexOutOfBoundsException("Value Error => "+ value);
+	}
+
+	public SparseVector divide(double val){
+		SparseVector divided = new SparseVector(this.size);
+
+		for(Entry<Integer, Double> e: this.vector.entrySet()){
+			divided.setValue(e.getKey(),e.getValue()/val);
+		}
+		return divided;
+	}
+
+	public int getSum(){
+		if(norm != -1 && newValues == false){
+			return this.sum;
+		}
+		this.sum=0;
+
+		for(double val : this.values())
+			this.sum+=val;
+		return this.sum;
 	}
 
 	public double getNorm(){
