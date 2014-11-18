@@ -39,7 +39,6 @@ public class Vectoriel implements IRmodel {
 		 * score: sim(d,q) = Ei docweights(i)*queryweights(i)/Racine(Ei docWeighs(I)^2 * Ej queryweights(j)^2)
 		 */
 
-		BagOfWords bow = index.getBow();
 		HashMap<Integer, Double> scores;
 		HashMap<Integer,Double> stemWeights;
 		SparseVector queryWeights = weighter.getWeightsForQuery(query);

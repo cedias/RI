@@ -10,6 +10,8 @@ import java.util.Arrays;
 
 import java.util.List;
 
+import languageModels.LanguageModel;
+
 import classes.Index;
 
 import evaluation.EvalIRModel;
@@ -34,12 +36,13 @@ public class MainProg {
 
 		Weighter w = new TFIDFWeighter(index);
 		Vectoriel vect = new Vectoriel(index, w,false);
+		LanguageModel lang = new LanguageModel(index, 0.5);
 		QueryIter queries = new QueryIter("cisi/cisi.qry", "cisi/cisi.rel", new CisiParser("cisi/cisi.qry"));
 
 		ArrayList<IRmodel> models = new ArrayList<IRmodel>();
 		ArrayList<EvalMeasure> mesures = new ArrayList<EvalMeasure>();
 
-		models.add(vect);
+		models.add(lang);
 
 		mesures.add(new EvalPrecisionRappel(10));
 
