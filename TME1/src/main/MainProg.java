@@ -10,6 +10,8 @@ import java.util.Arrays;
 
 import java.util.List;
 
+import okapi.OkapiModel;
+
 import languageModels.LanguageModel;
 
 import classes.Index;
@@ -37,12 +39,13 @@ public class MainProg {
 		Weighter w = new TFIDFWeighter(index);
 		Vectoriel vect = new Vectoriel(index, w,false);
 		LanguageModel lang = new LanguageModel(index, 0.5);
+		OkapiModel okap = new OkapiModel(index, 1.2, 0.7);
 		QueryIter queries = new QueryIter("cisi/cisi.qry", "cisi/cisi.rel", new CisiParser("cisi/cisi.qry"));
 
 		ArrayList<IRmodel> models = new ArrayList<IRmodel>();
 		ArrayList<EvalMeasure> mesures = new ArrayList<EvalMeasure>();
 
-		models.add(lang);
+		models.add(okap);
 
 		mesures.add(new EvalPrecisionRappel(10));
 

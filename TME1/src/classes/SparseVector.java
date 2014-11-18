@@ -53,6 +53,45 @@ public class SparseVector {
 		return divided;
 	}
 
+	public SparseVector mult(double val){
+		SparseVector mult = new SparseVector(this.size);
+
+		for(Entry<Integer, Double> e: this.vector.entrySet()){
+			mult.setValue(e.getKey(),e.getValue()*val);
+		}
+		return mult;
+	}
+
+	public SparseVector minus(double val){
+		SparseVector minus = new SparseVector(this.size);
+
+		for(Entry<Integer, Double> e: this.vector.entrySet()){
+			minus.setValue(e.getKey(),e.getValue()-val);
+		}
+		return minus;
+	}
+
+	public SparseVector plus(double a){
+		SparseVector plus = new SparseVector(this.size);
+
+		for(Entry<Integer, Double> e: this.vector.entrySet())
+			plus.setValue(e.getKey(), e.getValue()+a);
+
+		return plus;
+	}
+
+	public SparseVector divideAll(SparseVector b){
+		if(this.size != b.size)
+			System.err.println("Size are not the same ("+this.size+" / "+b.size+")");
+
+		SparseVector res = new SparseVector(this.size);
+		Set<Integer> keys =  (vector.keySet().size() <= b.vector.keySet().size())? new HashSet<Integer>(vector.keySet()):new HashSet<Integer>(b.vector.keySet());
+		for(Integer i: keys)
+			res.setValue(i, this.getValue(i)/b.getValue(i));
+
+		return res;
+	}
+
 	public int getSum(){
 		if(norm != -1 && newValues == false){
 			return this.sum;

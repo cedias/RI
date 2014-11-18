@@ -184,6 +184,13 @@ public class Index {
 		return sum;
 	}
 
+	public int getNbDocsWithStem(String stem) throws IOException{
+		HashMap<Integer, Double> tf = getTfsForStem(stem);
+		int sum = 0;
+		sum +=tf.size();
+		return sum;
+	}
+
 	public double getIDFStem(String stem) throws IOException{
 		HashMap<Integer,Double> frequencies = getTfsForStem(stem);
 		double stemCount = 0;
@@ -204,7 +211,6 @@ public class Index {
 	public BagOfWords getBow() {
 		return bow;
 	}
-
 
 
 	private void buildIndexs() throws IOException {
