@@ -94,6 +94,9 @@ public class ResearchGraphRank implements IRmodel {
 
 		Set<Integer> nodes = index.getDocInLinks(node);
 
+		if(nodes== null)
+			return new HashSet<Integer>();
+
 		if(nodes.size() <= inLinks)
 			return nodes;
 

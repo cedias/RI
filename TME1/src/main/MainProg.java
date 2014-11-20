@@ -37,41 +37,46 @@ public class MainProg {
 
 
 		String filename = "cisi/cisi.txt";
+		String file = "cisi/cisi";
 		Index index = new Index(filename, new CisiParser(filename), "cisi");
 
 		Weighter w = new TFIDFWeighter(index);
 		Vectoriel vect = new Vectoriel(index, w,false);
 		LanguageModel lang = new LanguageModel(index, 0.5);
 		OkapiModel okap = new OkapiModel(index, 1.2, 0.7);
-
-
 		PageRank pr = new PageRank(index, 0.8, 1000);
-		HITS hi = new HITS(index, 100);
-		ResearchGraphRank rg = new ResearchGraphRank(index, vect, 5, 5, hi);
-		QueryIter queries = new QueryIter("cisi/cisi.qry", "cisi/cisi.rel", new CisiParser("cisi/cisi.qry"));
+		HITS hi = new HITS(index, 50);
+		ResearchGraphRank rg = new ResearchGraphRank(index, vect, 10, 10,hi );
+
+
+		QueryIter queries = new QueryIter(file+".qry", file+".rel", new CisiParser(file+".qry"));
+
 
 		ArrayList<IRmodel> models = new ArrayList<IRmodel>();
 		ArrayList<EvalMeasure> mesures = new ArrayList<EvalMeasure>();
 
-		models.add(rg);
+		models.add(vect);
+		String modelName = "Hits Model - (50)";
+		//models.add(okap);
 
-		mesures.add(new EvalPrecisionRappel(10));
-
-
+		mesures.add(new EvalPrecisionRappel(100));
 		//mesures.add(new EvalPrecisionMoyenne());
-
-
 		//Map<Integer, List<List<Double>>> eval = EvalIRModel.Evaluate(models, mesures, queries);
 		List<List<Double>> eval = EvalIRModel.EvaluateMean(models, mesures, queries);
 
 
 		//System.out.println(eval.get(1).size());
 
+
+
 		Double[] yvals = eval.get(0).toArray(new Double[eval.get(0).size()]);
 		Double[] xvals = EvalIRModel.getRappelLevels(10);
 
-		PlotArray pl = new PlotArray(xvals, yvals, "Rappel", "Précision", "PR-102");
+
+
+		PlotArray pl = new PlotArray(xvals, yvals, "Rappel", "Précision", modelName);
 		pl.plot();
+		pl.save("./vect.pdf");
 
 
 

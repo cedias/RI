@@ -1,8 +1,13 @@
 package plot;
 
+import java.io.IOException;
+import java.util.List;
+
 import com.xeiam.xchart.Chart;
 import com.xeiam.xchart.QuickChart;
 import com.xeiam.xchart.SwingWrapper;
+import com.xeiam.xchart.VectorGraphicsEncoder;
+import com.xeiam.xchart.VectorGraphicsEncoder.VectorGraphicsFormat;
 
 public class PlotArray {
 
@@ -11,7 +16,7 @@ public class PlotArray {
 	String graphTitle;
 	String xName;
 	String yName;
-
+	Chart c;
 
 
 	public PlotArray(Double[] xvals, Double[] yvals, String xName, String yName, String graphTitle) {
@@ -28,11 +33,16 @@ public class PlotArray {
 		}
 	}
 
+
 	public void plot(){
 	    Chart chart = QuickChart.getChart(graphTitle, xName, yName, graphTitle, xData, yData);
+	    this.c = chart;
 	    new SwingWrapper(chart).displayChart();
 	}
 
+	public void save(String filename) throws IOException{
+		VectorGraphicsEncoder.saveVectorGraphic(this.c, filename, VectorGraphicsFormat.PDF);
+	}
 
 
 }
