@@ -2,10 +2,13 @@ package graphModels;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
+import java.util.Map.Entry;
 
 import classes.Index;
 import classes.Rank;
@@ -32,25 +35,44 @@ public class ResearchGraphRank implements IRmodel {
 
 
 	@Override
-	public Map<Integer, Double> getScores(HashMap<String, Integer> query)
+	public HashMap<Integer, Double> getScores(HashMap<String, Integer> query)
 			throws IOException {
 		Set<Integer> seed = getKSeed(query);
 		Set<Integer> nodes = new HashSet<Integer>();
 		nodes.addAll(seed);
 
 		for(Integer node: seed){
+			nodes.addAll(index.getDocLinks(node));
+			nodes.addAll(this.Krandom(node));
 
 		}
 
-
-		return null;
+		return (HashMap<Integer, Double>) graphMod.getNodeScores(nodes);
 	}
 
 	@Override
 	public ArrayList<Rank> getRanking(HashMap<String, Integer> query)
 			throws IOException {
-		// TODO Auto-generated method stub
-		return null;
+		HashMap<Integer, Double> scores = getScores(query);
+
+		ArrayList<Rank> ranking = new ArrayList<Rank>();
+
+
+		for(Entry<Integer,Double> score: scores.entrySet()){
+			ranking.add(new Rank(score.getKey(),score.getValue()));
+		}
+
+		Collections.sort(ranking,Collections.reverseOrder());
+
+		HashSet<Integer> relevant = new HashSet<Integer>(scores.keySet());
+		HashSet<Integer> irrelevant = index.docIdSet();
+		irrelevant.removeAll(relevant);
+
+		for(Integer idIrr: irrelevant){
+			ranking.add(new Rank(idIrr, -1));
+		}
+
+		return ranking;
 	}
 
 	@Override
@@ -66,6 +88,34 @@ public class ResearchGraphRank implements IRmodel {
 			seed.add(ranking.get(i).doc);
 
 		 return seed;
+	}
+
+	private Set<Integer> Krandom(Integer node) throws IOException {
+
+		Set<Integer> nodes = index.getDocInLinks(node);
+
+		if(nodes.size() <= inLinks)
+			return nodes;
+
+		Set<Integer> nodesRem = new HashSet<Integer>();
+
+		int remCount = nodes.size()-inLinks;
+		Random r = new Random();
+		while(true){
+			for(Integer n:nodes){
+				if(r.nextFloat()>0.9)
+					nodesRem.add(n);
+
+
+				if(nodesRem.size() >= remCount){
+					nodes.removeAll(nodesRem);
+					return nodes;
+				}
+
+			}
+
+		}
+
 	}
 
 }

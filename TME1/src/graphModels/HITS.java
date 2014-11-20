@@ -42,8 +42,6 @@ public class HITS implements RandomWalk{
 		double[] oldA = a;
 		for(int i=0;i<nbIter;i++){
 
-			System.out.println(meanSquareDiff(a, oldA));
-
 			oldA = a;
 			a = this.updateAuthority(a,h,nodes,node2Index);
 			h = this.updateHub(oldA,h,nodes,node2Index);

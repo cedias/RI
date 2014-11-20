@@ -1,5 +1,8 @@
 package main;
 
+import graphModels.HITS;
+import graphModels.PageRank;
+import graphModels.ResearchGraphRank;
 import interfaces.IRmodel;
 import interfaces.Weighter;
 
@@ -40,12 +43,17 @@ public class MainProg {
 		Vectoriel vect = new Vectoriel(index, w,false);
 		LanguageModel lang = new LanguageModel(index, 0.5);
 		OkapiModel okap = new OkapiModel(index, 1.2, 0.7);
+
+
+		PageRank pr = new PageRank(index, 0.8, 1000);
+		HITS hi = new HITS(index, 100);
+		ResearchGraphRank rg = new ResearchGraphRank(index, vect, 5, 5, hi);
 		QueryIter queries = new QueryIter("cisi/cisi.qry", "cisi/cisi.rel", new CisiParser("cisi/cisi.qry"));
 
 		ArrayList<IRmodel> models = new ArrayList<IRmodel>();
 		ArrayList<EvalMeasure> mesures = new ArrayList<EvalMeasure>();
 
-		models.add(okap);
+		models.add(rg);
 
 		mesures.add(new EvalPrecisionRappel(10));
 
