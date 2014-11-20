@@ -1,11 +1,20 @@
 package main;
+import graphModels.HITS;
+import graphModels.PageRank;
+
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Random;
 
 import parsing.CisiParser;
 import parsing.DocumentIter;
 import classes.Document;
+import classes.Index;
 import classes.SparseVector;
 import classes.Stemmer;
 
@@ -14,17 +23,59 @@ public class BugTrack {
 
 	/**
 	 * @param args
-	 * @throws FileNotFoundException
+	 * @throws IOException
 	 */
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws IOException {
 
-		SparseVector sv1 = new SparseVector(2);
-		SparseVector sv2 = new SparseVector(2);
+		String filename = "cisi/cisi.txt";
+		Index index = new Index(filename, new CisiParser(filename), "cisi");
 
-		sv1.setValue(0, 1);
-		sv2.setValue(1, 0);
+		System.out.println(index.getDocLinks(1));
+		System.out.println(index.getDocLinkCount(1));
+		System.out.println(index.getDocInLinks(1));
+		System.out.println(index.getDocInLinks(1).size());
 
-		System.out.println(sv1.cosSim(sv2));
+		HITS hi = new HITS(index, 10000);
+
+		HashSet<Integer> nodes2 = new HashSet<Integer>();
+
+
+		HashSet<Integer> nodes = index.docIdSet();
+		Random r = new Random();
+		for(Integer i:nodes){
+			//if(r.nextDouble() >=0.9)
+				nodes2.add(i);
+
+		}
+
+		Map<Integer, Double> res = hi.getNodeScores(nodes2);
+		System.out.println(Arrays.toString(res.values().toArray()));
+		System.out.println(res.values().size());
+
+/*
+		PageRank pr = new PageRank(index, 1, 10000);
+
+		HashSet<Integer> nodes;
+		HashSet<Integer> nodes2 = new HashSet<Integer>();
+
+
+		nodes = index.docIdSet();
+		Random r = new Random();
+		for(Integer i:nodes){
+			if(r.nextDouble() >=0.9)
+				nodes2.add(i);
+
+		}
+
+		System.out.println(index.getNbDocs());
+		System.out.println("nodes length:" + nodes2.size());
+
+		Map<Integer, Double> res = pr.getNodeScores(nodes2);
+
+		System.out.println(Arrays.toString(res.values().toArray()));
+		System.out.println(res.values().size());
+	*/
+
 
 	}
 }

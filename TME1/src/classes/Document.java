@@ -2,23 +2,24 @@ package classes;
 
 import java.util.List;
 import java.util.Date;
+import java.util.Set;
 
 public class Document {
-	
+
 	int id;
 	String titre;
 	Date date;
 	String auteur;
 	List<String> keywords;
-	List<Integer> links;
+	Set<Integer> links;
 	String text;
 	String filename;
 	Long fileAdress;
-	
-	
-	
+
+
+
 	public Document(int id, String titre, Date date, String auteur,
-			List<String> keywords, String text,List<Integer> links, String filename, Long fileAdress) {
+			List<String> keywords, String text,Set<Integer> links, String filename, Long fileAdress) {
 		super();
 		this.id = id;
 		this.titre = titre;
@@ -30,7 +31,7 @@ public class Document {
 		this.fileAdress = fileAdress;
 		this.links = links;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -46,19 +47,19 @@ public class Document {
 	public List<String> getKeywords() {
 		return keywords;
 	}
-	
-	public List<Integer> getLinks(){
+
+	public Set<Integer> getLinks(){
 		return links;
 	}
-	
+
 	public String getText() {
 		return text;
 	}
-	
+
 	public String getFilename() {
 		return filename;
 	}
-	
+
 	public Long getFileAdress() {
 		return fileAdress;
 	}
@@ -71,5 +72,5 @@ public class Document {
 				+ ", fileAdress=" + fileAdress + "]";
 	}
 
-	
+
 }

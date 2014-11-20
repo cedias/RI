@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,7 +22,7 @@ public class CisiParser implements DocParser {
 	private String auteur = null;
 	private List<String> keywords = null;
 	private String text = null;
-	private List<Integer> links = null;
+	private Set<Integer> links = null;
 	private String filename;
 
 	public CisiParser(String filename){
@@ -76,7 +78,7 @@ public class CisiParser implements DocParser {
 						this.text = buf.toString().trim();
 						break;
 					case 'X':
-						links = null;
+						links = this.linksSet(buf.toString().trim());
 						break;
 				}
 
@@ -116,13 +118,31 @@ public class CisiParser implements DocParser {
 			this.text = buf.toString().trim();
 			break;
 		case 'X':
-			links = null;
+			links = this.linksSet(buf.toString().trim());
 			break;
 	}
 
 
 	}
 
+	private Set<Integer> linksSet(String trim) {
+		HashSet<Integer> links = new HashSet<Integer>(10);
+		String[] lines = trim.split("\n");
+
+		if(lines.length == 1) //no links
+			return null;
+
+		for(String line: lines){
+			try{
+			links.add(Integer.parseInt(line.split("\t")[0]));
+			}
+			catch(NumberFormatException e){
+				System.err.println("Parse error:" + Arrays.toString(lines) + lines.length);
+				continue;
+			}
+		}
+		return links;
+	}
 
 	private int getId(String text) {
 		try{

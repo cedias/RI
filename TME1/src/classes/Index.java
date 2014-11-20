@@ -12,12 +12,12 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import classes.BagOfWords;
 import classes.SparseVector;
 import classes.Document;
 import classes.Stemmer;
-import parsing.CisiParser;
 import parsing.DocumentIter;
 
 
@@ -34,13 +34,17 @@ public class Index {
 	private String filename;
 	private RandomAccessFile index;
 	private RandomAccessFile inverted_index;
-	private RandomAccessFile normalized_index;
+	private RandomAccessFile links_index;
+	private RandomAccessFile invert_links_index;
 	private DocParser parser;
 
 	private BagOfWords bow;
 	private HashMap<Integer, Long> docs; //docs positions (-1 == number of words)
 	private HashMap<Integer, Long> stems; //stem positions
 	private HashMap<Integer, Long> docsAdress; //documents address in files
+	private HashMap<Integer, Long> linksAdress; //links adresses
+	private HashMap<Integer, Long> invlinksAdress; //inverted links adresses
+
 
 
 
@@ -56,9 +60,12 @@ public class Index {
 			File docsFile =  new File(name+".docs") ;
 			File stemsFile =  new File(name+".stems") ;
 			File addressFile =  new File(name+".addrs") ;
+			File linksFile = new File(name+".links") ;
+			File invertLinks = new File(name+".ilinks");
 			index = new RandomAccessFile(name+"_index", "rw");
 			inverted_index = new RandomAccessFile(name+"_inverted", "rw");
-			normalized_index = new RandomAccessFile(name+"_normIndex", "rw");
+			links_index = new RandomAccessFile(name+"_links", "rw");
+			invert_links_index = new RandomAccessFile(name+"_ilinks", "rw");
 
 			ObjectInputStream ois =  new ObjectInputStream(new FileInputStream(bowFile)) ;
 			this.bow = (BagOfWords) ois.readObject() ;
@@ -75,6 +82,14 @@ public class Index {
 			ois =  new ObjectInputStream(new FileInputStream(addressFile)) ;
 			this.docsAdress = (HashMap<Integer, Long>) ois.readObject() ;
 			ois.close();
+
+			ois =  new ObjectInputStream(new FileInputStream(linksFile)) ;
+			this.linksAdress = (HashMap<Integer, Long>) ois.readObject() ;
+			ois.close();
+
+			ois =  new ObjectInputStream(new FileInputStream(invertLinks)) ;
+			this.invlinksAdress = (HashMap<Integer, Long>) ois.readObject() ;
+			ois.close();
 		}
 		catch(Exception e){
 			this.bow = new BagOfWords();
@@ -85,6 +100,88 @@ public class Index {
 
 	public Index(String filename, DocParser parser) throws IOException{
 		this(filename,parser,filename);
+	}
+
+	public Pair<Integer, Integer> getDocLinkCount(int docId) throws IOException{
+		if(!linksAdress.containsKey(docId)){
+			System.err.println("doc with id:"+ docId+" has no links");
+			return null;
+		}
+
+		links_index.seek(linksAdress.get(docId));
+
+		int readInt = links_index.readInt();
+
+		if(readInt != docId)
+			System.err.println("read doc id differs from argument");
+
+		int inLinks = links_index.readInt();
+		int outLinks = links_index.readInt();
+
+		return new Pair<Integer, Integer>(inLinks, outLinks);
+
+	}
+
+	public Set<Integer> getDocLinks(int docId) throws IOException{
+		if(!linksAdress.containsKey(docId)){
+			//System.err.println("doc with id:"+ docId+" has no links");
+			return null;
+		}
+
+		links_index.seek(linksAdress.get(docId));
+
+		int readInt = links_index.readInt();
+
+		if(readInt != docId)
+			System.err.println("read doc id differs from argument");
+
+		@SuppressWarnings("unused")
+		int inLinks = links_index.readInt();
+		@SuppressWarnings("unused")
+		int outLinks = links_index.readInt();
+
+		if(readInt != docId)
+			System.err.println("Read wrong docLinks");
+
+		HashSet<Integer> linksRead = new HashSet<Integer>();
+
+		while(true){
+			readInt = links_index.readInt();
+
+			if(readInt == -1)
+				break; //end
+
+			linksRead.add(readInt);
+
+		}
+		return linksRead;
+	}
+
+	public Set<Integer> getDocInLinks(int docId) throws IOException{
+		if(!invlinksAdress.containsKey(docId)){
+			//System.err.println("doc with id:"+ docId+" has no incoming links");
+			return null;
+		}
+
+		invert_links_index.seek(invlinksAdress.get(docId));
+
+		int readInt = invert_links_index.readInt();
+
+		if(readInt != docId)
+			System.err.println("read doc id differs from argument");
+
+		HashSet<Integer> linksRead = new HashSet<Integer>();
+
+		while(true){
+			readInt = invert_links_index.readInt();
+
+			if(readInt == -1)
+				break; //end
+
+			linksRead.add(readInt);
+
+		}
+		return linksRead;
 	}
 
 	public SparseVector getTfsForDoc(int docId) throws IOException{
@@ -125,6 +222,10 @@ public class Index {
 
 	public long getCorpusSize(){
 		return docs.get(-1);
+	}
+
+	public int getNbDocs(){
+		return docs.size();
 	}
 
 	public HashMap<Integer, Double> getTfsForStem(String stem) throws IOException{
@@ -215,11 +316,18 @@ public class Index {
 
 	private void buildIndexs() throws IOException {
 		long sizeCorpus = 0;
-		docs = new HashMap<Integer,Long>();
-		stems = new HashMap<Integer,Long>();
-		docsAdress = new HashMap<Integer,Long>();
+		HashMap<Integer,Integer> inLinks = new HashMap<Integer,Integer>(1500);
+
+		docs = new HashMap<Integer,Long>(1500);
+		stems = new HashMap<Integer,Long>(1500);
+		docsAdress = new HashMap<Integer,Long>(1500);
+		linksAdress = new HashMap<Integer,Long>(1500);
+		invlinksAdress = new HashMap<Integer,Long>(1500);
+
 		index = new RandomAccessFile(name+"_index", "rw");
 		inverted_index = new RandomAccessFile(name+"_inverted", "rw");
+		links_index = new RandomAccessFile(name+"_links", "rw");
+		invert_links_index = new RandomAccessFile(name+"_ilinks", "rw");
 
 		DocumentIter dociter = new DocumentIter(filename, parser);
 		Stemmer stemmer = new Stemmer(); //get this out ?
@@ -229,6 +337,7 @@ public class Index {
 
 		HashMap<String, Integer> docStems = new HashMap<String,Integer>(10);
 		HashMap<Integer,Integer> stemDocCount = new HashMap<Integer,Integer>(1500);
+
 
 
 		/*
@@ -251,9 +360,10 @@ public class Index {
 			docStems.putAll(stemmer.porterStemmerHash(d.getTitre()));
 			//docStems.putAll(d.getKeywords());  -- TODO add keywords
 			//docStems.putAll(d.getAuteur(), 1); // -- TODO works for single named author
+
 			docStems.remove(" * "); //useless key
 
-
+			this.addLinksCount(d,inLinks);
 
 			docs.put(d.getId(), index.getFilePointer());
 			index.writeInt(d.getId());
@@ -285,8 +395,12 @@ public class Index {
 		dociter = new DocumentIter(filename, parser); //dociter works only once. -- TODO add exception "already used"
 		long endAddress = 0;
 		int cpt2=0;
-		HashMap<Integer,Integer> writeCount = new HashMap<Integer,Integer>(1500);
 		docStems.clear();
+
+		HashMap<Integer,Integer> writeCount = new HashMap<Integer,Integer>(1500);
+		HashMap<Integer,Integer> linksWriteCount = new HashMap<Integer,Integer>(inLinks.size());
+
+
 
 		for(Document d: dociter){
 
@@ -301,7 +415,12 @@ public class Index {
 			//docStems.putAll(d.getAuteur(), 1); // -- TODO works for single named author
 			docStems.remove(" * "); //useless key
 
+			if(inLinks.containsKey(d.getId()))
+				this.indexLinks(d,inLinks.get(d.getId()));
+			else
+				this.indexLinks(d,0);
 
+			this.indexInvertLinks(d,linksWriteCount,inLinks);
 
 			for(Entry<String, Integer> s : docStems.entrySet()){
 
@@ -361,11 +480,107 @@ public class Index {
 		this.saveIndex();
 	}
 
+	private void indexInvertLinks(Document d,
+			HashMap<Integer, Integer> linksWriteCount,HashMap<Integer, Integer> inLinksCount) throws IOException {
+
+		Set<Integer> links = d.getLinks();
+
+		if(links == null || links.size() == 0){
+			System.err.println("Document #"+d.getId() +" has no links");
+			return;
+		}
+		links.remove(d.getId());
+		int nodeId = d.getId();
+
+		for(Integer link: links){
+
+			if(linksWriteCount.containsKey(link)){
+				int written = linksWriteCount.get(link);
+				invert_links_index.seek(invlinksAdress.get(link));
+				int readId = invert_links_index.readInt();
+
+				if(readId != link)
+					System.err.println("read Id differs");
+
+				invert_links_index.skipBytes(4*written);
+				invert_links_index.writeInt(nodeId);
+				linksWriteCount.put(link, linksWriteCount.get(link)+1);
+			}
+			else
+			{
+				invert_links_index.seek(invert_links_index.length());
+				invlinksAdress.put(link, invert_links_index.getFilePointer());
+				invert_links_index.writeInt(link);
+				invert_links_index.writeInt(nodeId);
+				linksWriteCount.put(link, 1);
+
+				for(int i=0; i<inLinksCount.get(link)-1;i++){
+					invert_links_index.writeInt(0);
+				}
+
+				invert_links_index.writeInt(-1);
+			}
+
+		}
+
+
+
+	}
+
+
+	private void addLinksCount(Document d, HashMap<Integer, Integer> inLinks) {
+		Set<Integer> links = d.getLinks();
+
+		if(links == null || links.size() == 0){
+			System.err.println("Document #"+d.getId() +" has no links");
+			return;
+		}
+		links.remove(d.getId());
+
+		for(Integer link: links){
+
+			if(!inLinks.containsKey(link))
+				inLinks.put(link, 1);
+			else
+				inLinks.put(link, inLinks.get(link)+1);
+		}
+
+	}
+
+
+	private void indexLinks(Document d,int inLinks) throws IOException {
+		Set<Integer> links = d.getLinks();
+
+		if(links == null || links.size() == 0){
+			System.err.println("Document #"+d.getId() +" has no links");
+			return;
+		}
+		links.remove(d.getId()); // removing self-link
+
+		int docId = d.getId();
+		linksAdress.put(docId,links_index.getFilePointer());
+
+		//format: docId inlinks outlinks link1 link2... -1
+		links_index.writeInt(docId);
+		links_index.writeInt(inLinks);
+		links_index.writeInt(links.size());
+
+		for(Integer link: links)
+			links_index.writeInt(link);
+
+		links_index.writeInt(-1);
+
+		return;
+	}
+
+
 	public void saveIndex() throws IOException{
 		File bowFile =  new File(this.name+".bow") ;
 		File docsFile =  new File(this.name+".docs") ;
 		File stemsFile =  new File(this.name+".stems") ;
 		File addressFile =  new File(this.name+".addrs") ;
+		File linksFile = new File(this.name+".links");
+		File invLinksFile = new File(this.name+".ilinks");
 
 		ObjectOutputStream oos =  new ObjectOutputStream(new FileOutputStream(bowFile)) ;
 		oos.writeObject(this.bow) ;
@@ -382,10 +597,20 @@ public class Index {
 		oos =  new ObjectOutputStream(new FileOutputStream(addressFile)) ;
 		oos.writeObject(this.docsAdress) ;
 		oos.close();
+
+		oos =  new ObjectOutputStream(new FileOutputStream(linksFile)) ;
+		oos.writeObject(this.linksAdress) ;
+		oos.close();
+
+		oos =  new ObjectOutputStream(new FileOutputStream(invLinksFile)) ;
+		oos.writeObject(this.invlinksAdress) ;
+		oos.close();
 	}
 
 	public HashSet<Integer> docIdSet(){
-		return new HashSet<Integer>(docs.keySet());
+		HashSet<Integer> res = new HashSet<Integer>(docs.keySet());
+		res.remove(-1);
+		return res;
 	}
 
 
