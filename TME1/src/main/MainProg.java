@@ -1,35 +1,30 @@
 package main;
 
-import graphModels.HITS;
-import graphModels.PageRank;
-import graphModels.ResearchGraphRank;
-import interfaces.IRmodel;
-import interfaces.Weighter;
-
 import java.io.IOException;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import java.util.List;
 
-import okapi.OkapiModel;
-
-import languageModels.LanguageModel;
-
+import models.IRmodel;
+import models.graphModels.HITS;
+import models.graphModels.PageRank;
+import models.graphModels.ResearchGraphRank;
+import models.languageModels.LanguageModel;
+import models.okapi.OkapiModel;
+import models.vectorModels.TFIDFWeighter;
+import models.vectorModels.Vectoriel;
+import models.vectorModels.Weighter;
 import classes.Index;
-
 import evaluation.EvalIRModel;
 import evaluation.EvalMeasure;
 import evaluation.EvalPrecisionRappel;
-
 import parsing.CisiParser;
 import parsing.QueryIter;
+import parsing.selector.DocumentFieldSelector;
+import parsing.selector.MultiSelector;
+import parsing.selector.TextSelector;
+import parsing.selector.TitleSelector;
 import plot.PlotArray;
-import vectorModels.SimpleWeighter;
-import vectorModels.TFIDFWeighter;
-import vectorModels.TFWeighter;
-import vectorModels.Vectoriel;
 
 public class MainProg {
 
@@ -38,15 +33,22 @@ public class MainProg {
 
 		String filename = "cisi/cisi.txt";
 		String file = "cisi/cisi";
-		Index index = new Index(filename, new CisiParser(filename), "cisi");
+		
+		MultiSelector dfs = new MultiSelector();
+		dfs.add(new TextSelector());
+		dfs.add(new TitleSelector());
+		
+		Index index = new Index(filename, new CisiParser(filename), "cisi", dfs);
 
 		Weighter w = new TFIDFWeighter(index);
 		Vectoriel vect = new Vectoriel(index, w,false);
+		
 		LanguageModel lang = new LanguageModel(index, 0.5);
 		OkapiModel okap = new OkapiModel(index, 1.2, 0.7);
 		PageRank pr = new PageRank(index, 0.8, 1000);
 		HITS hi = new HITS(index, 50);
 		ResearchGraphRank rg = new ResearchGraphRank(index, vect, 10, 10,hi );
+		
 
 
 		QueryIter queries = new QueryIter(file+".qry", file+".rel", new CisiParser(file+".qry"));
@@ -56,29 +58,23 @@ public class MainProg {
 		ArrayList<EvalMeasure> mesures = new ArrayList<EvalMeasure>();
 
 		models.add(vect);
-		String modelName = "Hits Model - (50)";
-		//models.add(okap);
+		String modelName = "HITS Model";
+
 
 		mesures.add(new EvalPrecisionRappel(100));
-		//mesures.add(new EvalPrecisionMoyenne());
-		//Map<Integer, List<List<Double>>> eval = EvalIRModel.Evaluate(models, mesures, queries);
-		List<List<Double>> eval = EvalIRModel.EvaluateMean(models, mesures, queries);
 
+		List<List<Double>> eval = EvalIRModel.EvaluateMean(models, mesures, queries, dfs);
 
-		//System.out.println(eval.get(1).size());
 
 
 
 		Double[] yvals = eval.get(0).toArray(new Double[eval.get(0).size()]);
-		Double[] xvals = EvalIRModel.getRappelLevels(10);
+		Double[] xvals = EvalIRModel.getRappelLevels(100);
 
 
 
 		PlotArray pl = new PlotArray(xvals, yvals, "Rappel", "Précision", modelName);
 		pl.plot();
-		pl.save("./vect.pdf");
-
-
 
 
 		System.out.println(Arrays.toString(xvals));

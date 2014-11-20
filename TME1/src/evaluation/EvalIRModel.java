@@ -1,22 +1,21 @@
 package evaluation;
 
-import interfaces.IRmodel;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import models.IRmodel;
 import parsing.QueryIter;
+import parsing.selector.DocumentFieldSelector;
 import classes.Query;
 import classes.Rank;
 import classes.Stemmer;
 
 public class EvalIRModel {
 
-	public static Map<Integer,List<List<Double>>> Evaluate(List<IRmodel> models, List<EvalMeasure> mesures, QueryIter queries) throws IOException{
+	public static Map<Integer,List<List<Double>>> Evaluate(List<IRmodel> models, List<EvalMeasure> mesures, QueryIter queries, DocumentFieldSelector dfs) throws IOException{
 
 		HashMap<Integer,List<List<Double>>> results = new HashMap<Integer,List<List<Double>>>();
 		Stemmer st = new Stemmer();
@@ -29,7 +28,7 @@ public class EvalIRModel {
 				continue;
 			}
 
-			HashMap<String, Integer> queryText = st.porterStemmerHash(query.d.getText()); //TODO -- use all query info ?
+			HashMap<String, Integer> queryText = dfs.getStemsFromDocument(query.d, st);
 
 			for(IRmodel model: models){
 				ArrayList<Rank> ranking = model.getRanking(queryText);
@@ -53,10 +52,9 @@ public class EvalIRModel {
 
 	}
 
-	public static List<List<Double>> EvaluateMean(List<IRmodel> models, List<EvalMeasure> mesures, QueryIter queries) throws IOException{
+	public static List<List<Double>> EvaluateMean(List<IRmodel> models, List<EvalMeasure> mesures, QueryIter queries, DocumentFieldSelector dfs) throws IOException{
 
 		ArrayList<List<Double>> results = new ArrayList<List<Double>>(mesures.size());
-		ArrayList<Double> maxlist = new ArrayList<Double>();
 		Stemmer st = new Stemmer();
 		int queryCounter = 0;
 		List<Double> finalList;
@@ -70,7 +68,7 @@ public class EvalIRModel {
 				continue;
 			}
 
-			HashMap<String, Integer> queryText = st.porterStemmerHash(query.d.getText()); //TODO -- use all query info ?
+			HashMap<String, Integer> queryText = dfs.getStemsFromDocument(query.d, st);
 			queryText.remove(" * ");
 
 			for(IRmodel model: models){
@@ -106,8 +104,6 @@ public class EvalIRModel {
 		}
 
 
-System.out.println("maxlist");
-System.out.println(maxlist);
 		return results;
 
 	}

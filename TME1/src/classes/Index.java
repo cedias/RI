@@ -1,7 +1,5 @@
 package classes;
 
-import interfaces.DocParser;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -18,7 +16,9 @@ import classes.BagOfWords;
 import classes.SparseVector;
 import classes.Document;
 import classes.Stemmer;
+import parsing.DocParser;
 import parsing.DocumentIter;
+import parsing.selector.DocumentFieldSelector;
 
 
 
@@ -45,15 +45,16 @@ public class Index {
 	private HashMap<Integer, Long> linksAdress; //links adresses
 	private HashMap<Integer, Long> invlinksAdress; //inverted links adresses
 
-
+	private DocumentFieldSelector dfs;
 
 
 	@SuppressWarnings("unchecked")
-	public Index(String filename, DocParser parser, String indexName) throws IOException{
+	public Index(String filename, DocParser parser, String indexName, DocumentFieldSelector dfs) throws IOException{
 		super();
 		this.name = indexName;
 		this.filename = filename;
 		this.parser = parser;
+		this.dfs = dfs;
 
 		try{
 			File bowFile =  new File(name+".bow") ;
@@ -97,10 +98,6 @@ public class Index {
 		}
 	}
 
-
-	public Index(String filename, DocParser parser) throws IOException{
-		this(filename,parser,filename);
-	}
 
 	public Pair<Integer, Integer> getDocLinkCount(int docId) throws IOException{
 		if(!linksAdress.containsKey(docId)){
@@ -356,11 +353,7 @@ public class Index {
 			cpt++;
 			System.out.println("doc:"+cpt);
 			//Format: id int-id int-tf... -1
-			docStems.putAll(stemmer.porterStemmerHash(d.getText()));
-			docStems.putAll(stemmer.porterStemmerHash(d.getTitre()));
-			//docStems.putAll(d.getKeywords());  -- TODO add keywords
-			//docStems.putAll(d.getAuteur(), 1); // -- TODO works for single named author
-
+			docStems.putAll(dfs.getStemsFromDocument(d, stemmer));
 			docStems.remove(" * "); //useless key
 
 			this.addLinksCount(d,inLinks);
@@ -409,10 +402,7 @@ public class Index {
 
 			//Format: id-stem id-doc tf...-1 (all ints)
 			//get stems
-			docStems.putAll(stemmer.porterStemmerHash(d.getText()));
-			docStems.putAll(stemmer.porterStemmerHash(d.getTitre()));
-			//docStems.putAll(d.getKeywords());  -- TODO add keywords
-			//docStems.putAll(d.getAuteur(), 1); // -- TODO works for single named author
+			docStems.putAll(dfs.getStemsFromDocument(d, stemmer));
 			docStems.remove(" * "); //useless key
 
 			if(inLinks.containsKey(d.getId()))
@@ -479,6 +469,11 @@ public class Index {
 
 		this.saveIndex();
 	}
+
+	public DocumentFieldSelector getDfs() {
+		return dfs;
+	}
+
 
 	private void indexInvertLinks(Document d,
 			HashMap<Integer, Integer> linksWriteCount,HashMap<Integer, Integer> inLinksCount) throws IOException {

@@ -1,7 +1,5 @@
 package parsing;
 
-import interfaces.DocParser;
-
 import java.io.FileNotFoundException;
 import java.io.RandomAccessFile;
 import java.util.Iterator;

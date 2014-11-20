@@ -1,7 +1,4 @@
 package main;
-import graphModels.HITS;
-import graphModels.PageRank;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
@@ -11,8 +8,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
+import models.graphModels.HITS;
+import models.graphModels.PageRank;
 import parsing.CisiParser;
 import parsing.DocumentIter;
+import parsing.selector.MultiSelector;
+import parsing.selector.TextSelector;
+import parsing.selector.TitleSelector;
 import classes.Document;
 import classes.Index;
 import classes.SparseVector;
@@ -28,7 +30,11 @@ public class BugTrack {
 	public static void main(String[] args) throws IOException {
 
 		String filename = "cisi/cisi.txt";
-		Index index = new Index(filename, new CisiParser(filename), "cisi");
+		MultiSelector dfs = new MultiSelector();
+		dfs.add(new TextSelector());
+		dfs.add(new TitleSelector());
+		
+		Index index = new Index(filename, new CisiParser(filename), "cisi",dfs);
 
 		System.out.println(index.getDocLinks(1));
 		System.out.println(index.getDocLinkCount(1));
