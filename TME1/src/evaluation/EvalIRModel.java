@@ -61,7 +61,7 @@ public class EvalIRModel {
 
 
 		for(Query query: queries){
-			System.out.println("Processing query #"+query.d.getId());
+			System.out.println("Processing query #"+query);
 			if(query.releventDocuments == null)
 			{
 				System.err.println("Query #"+query.d.getId()+" doesn't have any relevant documents");
@@ -70,7 +70,7 @@ public class EvalIRModel {
 
 			HashMap<String, Integer> queryText = dfs.getStemsFromDocument(query.d, st);
 			queryText.remove(" * ");
-
+			System.out.println(queryText);
 			for(IRmodel model: models){
 				ArrayList<Rank> ranking = model.getRanking(queryText);
 				IRList result = new IRList(query, ranking);
@@ -107,6 +107,7 @@ public class EvalIRModel {
 		return results;
 
 	}
+	
 
 	public static Double[] getRappelLevels(int nbLevels){
 

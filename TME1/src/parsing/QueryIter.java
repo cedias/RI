@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 
 import classes.Document;
 import classes.Query;
-import evaluation.RelParser;
 
 public class QueryIter implements Iterable<Query> {
 
@@ -33,8 +32,7 @@ public class QueryIter implements Iterable<Query> {
 		super();
 		this.filename = qryFilename;
 		this.parser = parser;
-		this.relevents = RelParser.parse("cisi/cisi.rel");
-		
+		this.relevents = GtParser.parse(relFilename); //////////////////////////////WTF TODO
 		raf = new RandomAccessFile(filename,"r");
 		
 	}

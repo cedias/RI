@@ -188,7 +188,7 @@ public class Index {
 		}
 
 		index.seek(docs.get(docId));
-		int readInt = index.readInt(); //reads id; --TODO add check same ID ?
+		int readInt = index.readInt();
 
 		if(readInt != docId)
 			System.err.println("Read wrong Stem");

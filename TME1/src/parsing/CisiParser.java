@@ -80,8 +80,6 @@ public class CisiParser implements DocParser {
 						break;
 				}
 
-
-
 				currentCat = line.charAt(1);
 				buf.setLength(0);
 				continue;
@@ -143,12 +141,24 @@ public class CisiParser implements DocParser {
 	}
 
 	private int getId(String text) {
+		
+		
+		
 		try{
+			//temporary
+			if(text.contains("/")){
+				text = text.substring(3, text.indexOf('\n'));
+				text = text.replace("/", "");
+				text = "1"+text;
+				return Integer.parseInt(text);
+			}
+			else{
 			return Integer.parseInt(text.substring(3, text.indexOf('\n')));
+			}
 		}
 		catch(Exception e){
 			System.err.println("Error in IDPARSE of terxt: "+text);
-			return 0;
+			throw new NumberFormatException();
 		}
 	}
 
