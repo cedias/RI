@@ -1,0 +1,732 @@
+.I 00/28
+.T Statue of the Cristo de la Concordia
+.D a white, large statue with spread arms on a hill; picture taken from behind; bushes and small trees on the hill; street leading up the hill; there are white clouds in the blue sky;
+.N People in Cochabamba are proud that their Christ Statue is larger than its counterpart in Rio de Janeiro. In fact, it is the largest Christ Statue in the world!
+.L Cochabamba, Bolivia
+.Y February 2002
+.I 01/1515
+.T Yacare Ibera
+.D an alligator in the water;
+.N 
+.L Corrientes, Argentina
+.Y August 2002
+.I 02/2007
+.T Sleeping alligator in the jungle
+.D An alligator in the water between leafs;
+.N 
+.L Puerto Maldonado, Peru
+.Y November 2002
+.I 02/2285
+.T An alligator in the water
+.D an alligator in the water
+.N 
+.L Puerto Maldonado, Peru
+.Y August 2002
+.I 02/2764
+.T The tail of a whale near the Peninsula Valdez
+.D The tail of a whale 
+.N 
+.L Península Valdez, Argentina
+.Y January 2002
+.I 02/2913
+.T A shoal in the Gruta da Pratinha
+.D A shoal in shallow water;
+.N 
+.L Chapada Diamantina, Brazil
+.Y January 2002
+.I 03/3090
+.T Alligator swimming
+.D an alligator is swimming in brown water;
+.N 
+.L Pantanal, Brazil
+.Y January 2002
+.I 03/3147
+.T Christ the Redeemer Statue on the Corcovado Mountain
+.D a grey statue of a man spreading his arms;
+.N The most famous landmark of the city is on the Corcovado Mountain;
+.L Rio de Janeiro, Brazil
+.Y February 2002
+.I 03/3166
+.T Turtles
+.D two turtles are swimming in the water;
+.N 
+.L Rio de Janeiro, Brazil
+.Y February 2002
+.I 03/3248
+.T Turtle
+.D a turtle in the water;
+.N 
+.L Praia do Forte, Brazil
+.Y February 2002
+.I 03/3660
+.T a Humpback whale
+.D a Humpback whale in the sea;
+.N Scientific name: Megaptera novaeangliae; 
+.L Puerto López, Ecuador
+.Y March 2002
+.I 04/4218
+.T A sea turtle under water
+.D A sea turtle under water;
+.N 
+.L Galápagos, Ecuador
+.Y May 2002
+.I 04/4219
+.T Underwater
+.D blue fish with yellow tails;
+.N 
+.L Galápagos, Ecuador
+.Y May 2002
+.I 04/4531
+.T Christ Statue in Cochabamba
+.D a large, white statue of a man with spread arms;  a large tree and some people in the foreground;
+.N 
+.L Cochabamba, Bolivia
+.Y March 2002
+.I 04/4533
+.T The Christ Statue
+.D the white statue of a man;
+.N 
+.L Cochabamba, Bolivia
+.Y March 2002
+.I 04/4759
+.T The god of the miners
+.D a statue of a devil (?) with horns, some carnival decoration and coca leaves on his lab;
+.N The miners have their own god, which consumes cigarettes, alcohol and coca leaves;
+.L Potosí, Bolivia
+.Y July 2002
+.I 04/4815
+.T Statue of an angel in the city of Guayaquil
+.D a black statue of an angel on a square with some people and a building with a high, arched entrance;
+.N 
+.L Guayaquil, Ecuador
+.Y August 2002
+.I 04/4895
+.T The Virgen del Panecillo
+.D a large, grey statue of Holy Mary with wings standing on a brown base;
+.N 
+.L Quito, Ecuador
+.Y August 2002
+.I 04/4896
+.T The Virgen del Panecillo
+.D a large, grey statue of Holy Mary with wings; 
+.N 
+.L Quito, Ecuador
+.Y August 2002
+.I 04/4900
+.T Jesus laid out in a church
+.D the statue of a dead Jesus on a red bed;
+.N 
+.L Quito, Ecuador
+.Y August 2002
+.I 04/4969
+.T Dolphins
+.D Dolphins in the sea;
+.N With a bit of luck, one can see dolphins on the way to the Isla de la Plata;
+.L Puerto López, Ecuador
+.Y August 2002
+.I 04/4975
+.T Dolphins
+.D dolphins in the sea;
+.N 
+.L Puerto López, Ecuador
+.Y August 2002
+.I 04/4979
+.T Humpback Whale near Puerto López
+.D a humpback whale is jumping out of the sea;
+.N Scientific Name: Megaptera novaeangliae
+.L Puerto López, Ecuador
+.Y August 2002
+.I 04/4993
+.T A humpback whale
+.D a humpback whale is jumping out of the sea;
+.N Scientific Name: Megaptera novaeangliae
+.L Puerto López, Ecuador
+.Y August 2002
+.I 05/5011
+.T Marine Angelfish
+.D Marine Angelfish in the sea;
+.N Scientific Name: Pomacanthidae
+.L Puerto López, Ecuador
+.Y August 2002
+.I 05/5012
+.T Marine Angelfish
+.D Marine Angelfish in the sea;
+.N Scientific Name: Pomacanthidae
+.L Puerto López, Ecuador
+.Y August 2002
+.I 06/6294
+.T A blowfish
+.D a man is holding a yellow blowfish under water;
+.N Scientific Name: Tetraodontidae
+.L Galápagos, Ecuador
+.Y October 2002
+.I 06/6297
+.T The underwater-world of the Galápagos Islands
+.D fish and rocky sea bed;
+.N 
+.L Galápagos, Ecuador
+.Y October 2002
+.I 06/6342
+.T Dolphins in the Atlantic Ocean
+.D a dolphin in the sea;
+.N 
+.L Fernando de Noronha, Brazil
+.Y December 2002
+.I 06/6501
+.T Celebrations of the Virgin Mary
+.D a crowded street with a statue of Holy Mary in the centre, trees on the right and a brown, bald mountain in the background;
+.N 
+.L Cabanaconde, Peru
+.Y 15 August 2002
+.I 06/6556
+.T Two Humpback Whales
+.D Two humpback whales in the sea;
+.N Scientific Name: Megaptera novaeangliae
+.L Puerto López, Ecuador
+.Y 3 September 2002
+.I 08/8458
+.T Humpback Whale
+.D a humbback whale in the sea;
+.N 
+.L Puerto López, Ecuador
+.Y 1 September 2003
+.I 09/9149
+.T A dolphin is accompanying the ship
+.D a woman is kneeing at the bow of a white ship and is taking a picture of a dolphin that is swimming in front of the ship;
+.N 
+.L Montañita, Ecuador
+.Y 19 October 2003
+.I 10/10657
+.T Group photo in front of the Virgin Statue
+.D nine tourists are standing at a railing on a grey terrace in front of a statue on a terrace above it and a steep slope in the background;
+.N 
+.L Baños, Ecuador
+.Y 8 March 2004
+.I 10/10738
+.T Swimming Dolphins
+.D three dolphins in the sea;
+.N 
+.L Puerto López, Ecuador
+.Y 8 March 2004
+.I 10/10999
+.T At the Christ Statue in heavy fog
+.D Tourists are standing and sitting on grey stairs with dense fog and the outlines of a statue in the background;
+.N 
+.L Rio de Janeiro, Brazil
+.Y 1 April 2004
+.I 12/12608
+.T Whitetip Reef Shark
+.D a grey shark in shallow water;
+.N at the visiting area Las Tintoreras on Isabela Island, scientific name: Triaenodon obesus
+.L Isabela Island, Ecuador
+.Y June 2004
+.I 13/13170
+.T A Humpback Whale
+.D a black whale in the sea in front of a grey steep coast;
+.N Scientific Name: Megaptera novaeangliae
+.L Isla de la Plata, Ecuador
+.Y 12 July 2004
+.I 13/13183
+.T Fishermen and pelicans in Puerto López
+.D two men are wading out of the sea at a sandy beach; many pelicans are swimming behind them or flying over them; one of them is stealing a fish from a green crate; a steep coast in the background;
+.N a sensational photo!!!
+.L Puerto López, Ecuador
+.Y 13 July 2004
+.I 14/14520
+.T The god of the miners (El Tío)
+.D Koka leaves on the lap and between the legs of a rock statue with horns; two persons with dark green overalls on the left and on the right; 
+.N 
+.L Potosí, Bolivia
+.Y 15 August 2004
+.I 15/15027
+.T A Pelican in Paracas
+.D a pelican in the water;
+.N 
+.L Paracas, Peru
+.Y 17 August 2004
+.I 15/15172
+.T A Humpback Whale
+.D a humpback whale in the sea;
+.N 
+.L Puerto López, Ecuador
+.Y 30 August 2004
+.I 15/15330
+.T The Buddha Statue in Quito
+.D a grey buddha statue with an orange ribbon and many dark grey and black columns on the right and on the left of it; white clouds in the background; 
+.N 
+.L Quito, Ecuador
+.Y September 2004
+.I 15/15405
+.T Fish in the clear water of the Bay of Rio
+.D many fish in greenish water;
+.N 
+.L Rio de Janeiro, Brazil
+.Y 9 September 2004
+.I 15/15645
+.T Fish from Lake Titicaca
+.D small fish in a brown pot; light brown reed in the background; 
+.N 
+.L Puno, Peru
+.Y 17 September 2004
+.I 15/15973
+.T God speed you!
+.D a statue of a man (priest?) with a cross in his hand on a grey base; green bushes and red flowers in front of it; a light blue wall behind it; 
+.N 
+.L Guayaquil, Ecuador
+.Y 30 September 2004
+.I 16/16638
+.T The Guardian of Dolphins
+.D a woman with white shorts, a greenish tee-shirt and a white hat is standing on the whore of a brown body of water with three dolphins in it; 
+.N 
+.L Manaus, Brazil
+.Y 13 October 2004
+.I 16/16819
+.T Mic and the Sacred Statue
+.D a man in grey trousers, a chequered shirt and a blue jacket in his hands is kneeling in front of a brown statue of a man on a grey base with a golden child on the arm; 
+.N 
+.L Rio de Janeiro, Brazil
+.Y 19 October 2004
+.I 16/16952
+.T Reef Sharks in close proximity
+.D two sharks in the water with a brown sea bed behind them;
+.N 
+.L Isabela Island, Ecuador
+.Y 10 September 2004
+.I 16/16993
+.T Veronika and Peter in front of the Christ Statue
+.D a man with a camera and a woman are posing on grey stairs; many people in front of a light grey statue of a man behind it; a light grey sky in the background; 
+.N 
+.L Rio de Janeiro, Brazil
+.Y 22 October 2004
+.I 19/19108
+.T Feeding of the river dolphins at the jungle village Novo Airão
+.D a woman is kneeling on a wooden jetty and is feeding a dolphin a little fish; two more women are kneeling behind her and are watching;
+.N 
+.L Amazon, Brazil
+.Y 2004
+.I 19/19135
+.T The Christ Statue on the Corcovado
+.D View from below of a dark grey statue of Jesus with spread arms; white clouds in the background; 
+.N Official name in Portuguese: "Cristo Redentor";
+.L Rio de Janeiro, Brazil
+.Y 2004
+.I 19/19194
+.T The Christ Statue at the top of the Corcovado
+.D View from below of a grey statue of Jesus with spread arms; white clouds in the background; 
+.N Official name in Portuguese: "Cristo Redentor";
+.L Rio de Janeiro, Brazil
+.Y 2004
+.I 19/19198
+.T The Christ Statue at the top of the Corcovado
+.D a woman with a tight white top and black pants is posing with spread arms in front of a grey statue of Jesus with spread arms; white clouds in the background; 
+.N Official name in Portuguese: "Cristo Redentor";
+.L Rio de Janeiro, Brazil
+.Y 2004
+.I 19/19211
+.T The Christ Statue at the top of the Corcovado
+.D a grey statue of Jesus with spread arms; a light blue sky in the background; 
+.N Official name in Portuguese: "Cristo Redentor";
+.L Rio de Janeiro, Brazil
+.Y 2004
+.I 19/19259
+.T Leda in front of the Christ Statue on the Corcovado
+.D a woman in a short red skirt and a white sleeveless shirt is posing next to a man with blue jeans, a black shirt and a camera in front of a large grey statue of Jesus with spread arms; a deep blue sky (and more people) in the background; 
+.N 
+.L Rio de Janeiro, Brazil
+.Y 24 November 2004
+.I 20/20356
+.T Statue of Mary at the Cerro San Cristobal
+.D a large palm and dark green bushes in the foreground; a large, white statue and a blue sky in the background; 
+.N 
+.L Santiago, Chile
+.Y 2004
+.I 20/20357
+.T Statue of Mary at the Cerro San Cristobal
+.D View from below of a large, white statue of Mary; a blue sky in the background; 
+.N 
+.L Santiago, Chile
+.Y 2004
+.I 22/22777
+.T The Statues of San Agustín
+.D a grey statue of a person is standing on a green meadow in front of a wooden fence in the foreground; a dark green, dense forest in the background; 
+.N 
+.L San Agustín, Colombia
+.Y 2005
+.I 23/23108
+.T Group photo in front of the Christ Statue
+.D a woman is taking a photo of a tourist group on grey stairs in the foreground; a light grey statue of a man with spread arms behind it; a light blue sky in the background; 
+.N 
+.L Rio de Janeiro, Brazil
+.Y 12 March 2005
+.I 25/25966
+.T The Christ Statue
+.D View from below of a grey statue of a man with spread arms; a blue sky in the background; 
+.N 
+.L Rio de Janeiro, Brazil
+.Y 19 May 2005
+.I 26/26625
+.T Whale
+.D a grey whale is swimming in dark blue water;
+.N 
+.L Península Valdez, Argentina
+.Y 2005
+.I 30/30011
+.T Statue near the Temple of Zeus
+.D large statue on top of a round basement, with two people on top of it; stairs lead up to the statue which is surrounded by neat hedges, palms and trees;
+.N 
+.L Athens, Greece
+.Y 22 February 2002
+.I 30/30783
+.T Saltwater Crocodile
+.D two crocodiles in brown water;
+.N 
+.L Billabong Sanctuary, Australia
+.Y 9 December 2002
+.I 30/30817
+.T Fish and corals
+.D a red fish in front of grey and brown corals under water;
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 11 December 2002
+.I 30/30822
+.T Diver and many fish
+.D a diver in a black wetsuit with many fish near the water surface;
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 11 December 2002
+.I 30/30824
+.T Fish close to the boat
+.D many grey fish with yellow tail fins and black-and-white striped fish in the water near a boat and close to the surface;
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 11 December 2002
+.I 30/30825
+.T A lot of fish close to the surface
+.D many grey fish with yellow tail fins and black-and-white striped fish in the water; 
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 11 December 2002
+.I 30/30826
+.T A lot of fish near the corals
+.D many black-and-white striped fish in the water with grey rocks and brown corals in the background;
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 11 December 2002
+.I 30/30827
+.T Many Fish
+.D many grey fish with yellow tail fins under water;
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 11 December 2002
+.I 30/30828
+.T Many Fish
+.D many grey fish with yellow tail fins and black-and-white striped fish in the water; 
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 11 December 2002
+.I 30/30829
+.T Fish and corals
+.D two yellow fish in front of grey corals and brown stones;
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 11 December 2002
+.I 30/30830
+.T Fish and Coral
+.D Fish in front of a brown coral on a grey rock under water;
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 11 December 2002
+.I 30/30831
+.T Corals and Fish
+.D little grey fish are grazing on a brown coral on a grey rock under water;
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 11 December 2002
+.I 30/30843
+.T A Coral with small fish
+.D small yellow fish in front of a grey coral;
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 12 December 2002
+.I 30/30844
+.T Fish at the bottom of the sea
+.D grey, black and green fish at the grey bottom of the sea;
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 12 December 2002
+.I 30/30845
+.T Fish at the coral reef
+.D Fish in front of grey and brown corals;
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 12 December 2002
+.I 30/30846
+.T Fisch at the coral reef
+.D yellow and blue fish in front of brown and grey corals under water;
+.N 
+.L Whitsunday Islands National Park, Australia
+.Y 12 December 2002
+.I 30/30863
+.T Man with snorkel under Water
+.D a man with a yellow snorkel and diving gogggles is showing thumbs up under water;  a shoal of fish in the background;
+.N 
+.L Great Keppel Island, Australia
+.Y 15 December 2002
+.I 30/30865
+.T Fish and corals
+.D a blue fish in front of brown corals and grey rocks under water;
+.N 
+.L Great Keppel Island, Australia
+.Y 15 December 2002
+.I 30/30866
+.T Fish and corals
+.D blue fish and brown corals under water;
+.N 
+.L Great Keppel Island, Australia
+.Y 15 December 2002
+.I 30/30867
+.T Turtle and corals
+.D a brown turtle and corals under water;
+.N 
+.L Great Keppel Island, Australia
+.Y 15 December 2002
+.I 30/30868
+.T Turtle and Corals
+.D a brown turtle and corals under water;
+.N 
+.L Great Keppel Island, Australia
+.Y 15 December 2002
+.I 30/30869
+.T A shoal of fish
+.D a shoal of grey fish under water;
+.N 
+.L Great Keppel Island, Australia
+.Y 15 December 2002
+.I 31/31072
+.T Pelicans in the Hastings River
+.D three pelicans are swimming on a river; a jetty and trees on the bank in the background;
+.N 
+.L Port Macquarie, Australia
+.Y 7 January 2003
+.I 31/31337
+.T The St. Patricks Cathedral
+.D a brown cathedral with a high light brown tower and two smaller light brown towers;  trees and bushes in the foreground, a blue sky with fleecy clouds in the background;
+.N 
+.L Melbourne, Australia
+.Y March 2002
+.I 32/32763
+.T St. Mary's Cathedral
+.D a large, brown cathedral with two high, pointed towers, a broader medium-high tower and many pinnacles; trees and cars on a road in the foreground, a blue sky in the background;
+.N 
+.L Sydney, Australia
+.Y September 2002
+.I 32/32866
+.T View from the Sydney Sky Tower
+.D View (from above) of a park with many trees, lawns and a fountain in the centre; the shadow of a tower in the foreground and a brown cathedral behind it; high-rise buildings in the background;
+.N Hyde Park and St. Mary's Cathedral;
+.L Sydney, Australia
+.Y 3 January 2005
+.I 32/32870
+.T View from the Sydney Sky Tower
+.D View (from above) of a brown cathedral surrounded by streets, meadows and trees;
+.N St. Mary's Cathedral;
+.L Sydney, Australia
+.Y 3 January 2005
+.I 35/35678
+.T The Gyeongju National Museum
+.D a grey statue on a footpath with green trees behind it and a blue sky in the background; 
+.N 
+.L Gyeongju, South Korea
+.Y November 2004
+.I 35/35780
+.T Monuments near the Bongeunsa Temple
+.D small black monuments with small grey roofs on grey turtle statues; grey stairs, light brown and green bushes and purple flowers in the foreground; green and yellow trees in the background; 
+.N 
+.L Seoul, South Korea
+.Y November 2004
+.I 35/35782
+.T Buddha Statue at the Bongeunsa Temple
+.D two people are praying on a brown podium on a grey square in front of a grey buddha statue on a base with grey columns; a high, grey wall and a slope with brown and green trees and bushes behind it; a blue sky in the background; 
+.N 
+.L Seoul, South Korea
+.Y November 2004
+.I 35/35783
+.T Buddha Statue at the Bongeunsa Temple
+.D two people are praying on a brown podium on a grey square in front of a grey buddha statue on a base with grey columns; a high, grey wall and a slope with brown and green trees and bushes behind it; a female tourist in the foreground; a blue sky in the background; 
+.N 
+.L Seoul, South Korea
+.Y November 2004
+.I 36/36035
+.T The Luxor Hotel
+.D a high, brown pyramid with dark palms, a large sphinx and many small brown lion statues in front of it and grey clouds behind it; 
+.N 
+.L Las Vegas, United States of America
+.Y October 2001
+.I 36/36036
+.T The Sphinx at the Luxor Hotel
+.D a statue of a man in front of a giant, light brown sphinx with an orange and dark blue bandanna; white clouds in the background; 
+.N 
+.L Las Vegas, United States of America
+.Y October 2001
+.I 37/37169
+.T The Church of the Savior on Blood
+.D a dark brown cathedral with a large painting, many ornaments, many white arches and columns, a golden dome, three multicoloured onion domes and golden crosses on all towers; a blue sky with white fleecy clouds in the background; 
+.N 
+.L Saint Petersburg, Russia
+.Y February 2001
+.I 37/37191
+.T The Church of the Savior on Blood
+.D a brown church with many arches on the ground floor, large windows and a few colourful onion domes with golden crosses on them; dark brown trees in the foreground; a blue sky in the background; 
+.N 
+.L Saint Petersburg, Russia
+.Y February 2001
+.I 37/37192
+.T The Church of the Savior on Blood
+.D a brown church with many arches on the ground floor, large windows golden domes and a few colourful onion domes with golden crosses on them; dark brown trees and cars and people in a partly snow covered street in the foreground; a frozen canal and buildings on the left; a blue sky in the background; 
+.N 
+.L Saint Petersburg, Russia
+.Y February 2001
+.I 37/37194
+.T The Church of the Savior on Blood
+.D a brown church with many arches on the ground floor, large windows golden domes and a few colourful onion domes with golden crosses on them; dark brown trees and people and cars in a partly snow covered street in the foreground; a blue sky in the background; 
+.N 
+.L Saint Petersburg, Russia
+.Y February 2001
+.I 37/37204
+.T Saint Isaac's Cathedral
+.D a grey cathedral with brown columns, two small and a large golden dome; a few people on a snow covered square in front of it;  white clouds in a blue sky in the background; 
+.N 
+.L Saint Petersburg, Russia
+.Y February 2001
+.I 37/37303
+.T Museum of Wooden Architecture at Bolshaya Reka
+.D a cathedral made of brown wood with white windows and four towers each with a cross on it; a fence and snow in the foreground; dark brown trees and a grey sky in the background; 
+.N 
+.L Bolshaya Reka, Russia
+.Y February 2001
+.I 37/37353
+.T The Saint Basil's Cathedral and the Kremlin in the Background
+.D a dark brown cathedral with colourful onion domes in the foreground; several white buildings behind it with round towers and golden domes and crosses on it; grey fog in the background; 
+.N 
+.L Moscow, Russia
+.Y February 2001
+.I 37/37368
+.T The Tsar Pushka Cannon and the Cathedral of the Dormition at the Moscow Kremlin
+.D a black cannon, a woman, snow and trees in the foreground; behind it a brown cathedral with round white towers with golden domes and golden crosses on them; a grey sky in the background; 
+.N 
+.L Moscow, Russia
+.Y February 2001
+.I 37/37369
+.T The Roof of the Verkhospasskij Cathedral at the Kremlin of Moscow
+.D a roof with seven little round towers and crosses on them;
+.N 
+.L Moscow, Russia
+.Y February 2001
+.I 37/37371
+.T The Cathedral of the Archangel at the Kremlin of Moscow
+.D People on a square with snow and trees in the foreground; a white cathedral with four small towers with grey domes and a larger tower with a golden dome behind it; a white building on the right; a dark-yellow and white building and a grey sky in the background; 
+.N 
+.L Moscow, Russia
+.Y February 2001
+.I 37/37374
+.T The Cathedral of the Annunciation at the Kremlin of Moscow
+.D a small white cathedral with many small towers with golden domes and crosses on them; snow piles on a grey square in front of it; a dark-yellow and white house behind it; a grey sky in the background; 
+.N 
+.L Moscow, Russia
+.Y February 2001
+.I 37/37375
+.T The Cathedral of the Archangel and the Cathedral of the Annunciation at the Kremlin of Moscow
+.D two white cathedrals with many small towers with grey and golden domes and golden crosses on them; a street, trees and snow in front of them; an orange and white building in the foreground on the left; a grey sky in the background; 
+.N 
+.L Moscow, Russia
+.Y February 2001
+.I 37/37376
+.T The Patriarch’s Palace at the Kremlin of Moscow
+.D a white building with some arches and columns and four small round towers with grey domes and golden crosses on them; dark brown trees in the foreground; a grey sky in the background; 
+.N 
+.L Moscow, Russia
+.Y February 2001
+.I 37/37386
+.T The Historical Museum at Red Square and a Kremlin Tower behind it
+.D People on a grey square with a dark brown church with many small grey towers on the right and snow covered trees, a dark red and a yellow and white building with a white and red tower with a green pointed roof on the left; a grey sky in the background; 
+.N 
+.L Moscow, Russia
+.Y February 2001
+.I 37/37387
+.T The Red Square of Moscow
+.D a long, three and four-storey, light brown building with black towers and many arched windows and doors on the left; people in black clothes and snow on a square with grey cobblestones in front of it; a dark red wall with a dark red tower on the right; a dark red cathedral with many colourful onion domes at the back; a dark grey sky in the background; 
+.N GUM on the left, Saint Basil's Cathedral and the Spasskaya Tower in the background; 
+.L Moscow, Russia
+.Y February 2001
+.I 37/37392
+.T The Red Square with Saint Basil's Cathedral and the Kremlin's Spasskaya Tower
+.D many people in black clothes and some snow on a grey square; a dark red wall with a dark red tower on the right; a dark red cathedral with many colourful onion domes at the back; a long dark-yellow building on the left; a grey sky in the background; 
+.N 
+.L Moscow, Russia
+.Y February 2001
+.I 37/37393
+.T The Saint Basil's Cathedral
+.D a cathedral with crosses on many onion domes; snow and a fence in front of it; a grey sky in the background; 
+.N 
+.L Moscow, Russia
+.Y February 2001
+.I 37/37394
+.T The Saint Basil's Cathedral
+.D a cathedral with crosses on many onion domes; people, trees, a statue and snow on a square in front of it; a grey sky in the background; 
+.N 
+.L Moscow, Russia
+.Y February 2001
+.I 37/37447
+.T Orca-Show at SeaWorld
+.D two black and white orcas are jumping in a pool; people on a crowded grandstand in the background;
+.N Scientific Name: Orcinus orca 
+.L San Diego, United States of America
+.Y 18 June 2005
+.I 37/37448
+.T Orca-Show at SeaWorld
+.D two black and white orcas are jumping in a pool; people on a crowded grandstand in the background;
+.N Scientific Name: Orcinus orca 
+.L San Diego, United States of America
+.Y 18 June 2005
+.I 37/37449
+.T Orca-Show at SeaWorld
+.D two black and white orcas are jumping in a pool; 
+.N Scientific Name: Orcinus orca 
+.L San Diego, United States of America
+.Y 18 June 2005
+.I 37/37450
+.T Orca-Show at SeaWorld
+.D a black and white orcas is jumping in a pool; people on a crowded grandstand in the background;
+.N Scientific Name: Orcinus orca 
+.L San Diego, United States of America
+.Y 18 June 2005
+.I 38/38269
+.T The Palace of Fine Art
+.D many ducks and other birds in a pond;  green bushes and trees and a light brown structure with many columns behind it; a blue sky in the background; 
+.N 
+.L San Francisco, United States of America
+.Y September 2004
+.I 38/38270
+.T The Palace of Fine Art
+.D a round light brown building with a dome, several arches and pink columns; green trees and a pond with ducks in front of it; a blue sky in the background; 
+.N 
+.L San Francisco, United States of America
+.Y September 2004
+.I 38/38271
+.T Duck at the Lagoon of the Palace of Fine Art
+.D a grey bird is swimming in greenish water;
+.N 
+.L San Francisco, United States of America
+.Y September 2004
+.I 39/39625
+.T St. Mary's Cathedral
+.D a large, brown cathedral with two high, pointed towers, a broader medium-high tower and many pinnacles; trees and cars on a road in the foreground, a blue sky in the background;
+.N 
+.L Sydney, Australia
+.Y September 2002
+.I 40/40500
+.T The St. Patricks Cathedral
+.D a dark grey cathedral with three light brown towers, many pinnacles and arched windows and doors; brown trees and green hedges in front of it and a grey sky in the background; 
+.N 
+.L Melbourne, Australia
+.Y September 2003

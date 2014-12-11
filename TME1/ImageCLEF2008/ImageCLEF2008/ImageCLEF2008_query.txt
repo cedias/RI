@@ -1,0 +1,273 @@
+.I 2
+.T church with more than two towers 
+.C city 
+.N Relevant images will show a church, cathedral or a mosque with three or more towers. Churches with only one or two towers are not relevant. Buildings that are not churches, cathedrals or mosques are not relevant even if they have more than two towers. 
+.U SampleImages/02/16432.jpg 
+.U SampleImages/02/37395.jpg 
+.U SampleImages/02/40498.jpg 
+.I 3
+.T religious statue in the foreground 
+.C statue 
+.N Relevant images will show a statue of one (or more) religious figures such as gods, angels, prophets etc. from any kind of religion in the foreground. Non-religious statues like war memorials or monuments are not relevant. Images with statues that are not the focus of the image (like the front view of church with many small statues) are not relevant. The statues of Easter Island are not relevant as they do not have any religious background. 
+.U SampleImages/03/31.jpg 
+.U SampleImages/03/7446.jpg 
+.U SampleImages/03/35577.jpg 
+.I 5
+.T animal swimming 
+.C animal 
+.N Relevant images will show one or more animals (fish, birds, reptiles, etc.) swimming in a body of water. Images of people swimming in water are not relevant. Images of animals that are not swimming are not not relevant. 
+.U SampleImages/05/3739.jpg 
+.U SampleImages/05/4986.jpg 
+.U SampleImages/05/30823.jpg 
+.I 6
+.T straight road in the USA 
+.C state 
+.N Relevant images will show a straight road or highway (either empty or with traffic) in the United States of America. A road is considered to be a straight road if there is no curve visible in the image. Images with roads with a curve are not relevant. Images with straight roads that are not in the USA are not relevant. Images with roads too short to determine whether they are straight or not (like side views) are not relevant. 
+.U SampleImages/06/37537.jpg 
+.U SampleImages/06/37736.jpg 
+.U SampleImages/06/37754.jpg 
+.I 10
+.T destinations in Venezuela 
+.C location 
+.N Relevant images will show tourist destinations in Venezuela. Tourist destinations include natural landmarks (e.g. waterfalls, mountains, rivers, beaches, etc.), as well as man-made landmarks (e.g. cities, monuments, squares, etc.). Images of accommodation are not relevant, and neither are images of tourist destinations not located in Venezuela. 
+.U SampleImages/10/4072.jpg 
+.U SampleImages/10/21220.jpg 
+.U SampleImages/10/21320.jpg 
+.I 11
+.T black and white photos of Russia 
+.C city 
+.N Relevant images are black and white photographs taken anywhere in Russia. Coloured images are not relevant; black and white images that were not taken in Russia are also not relevant. 
+.U SampleImages/11/37190.jpg 
+.U SampleImages/11/37340.jpg 
+.U SampleImages/11/37367.jpg 
+.I 12
+.T people observing football match 
+.C venue 
+.N Relevant images will show people watching a football (soccer) match. This includes spectators watching the match in a stadium or at a normal football ground, and also people watching it on TV. Images are relevant if spectators are visible (in the foreground or background) and if it is obvious that they are watching a football (soccer) game. Images with spectators watching any other sport or a different code of football (American Football, Australian Football, Rugby Union, Rugby League, Gaelic Football, Canadian Football, International Rules Football, etc.) are not relevant. Images of football (soccer) games without spectators are not relevant either. 
+.U SampleImages/12/13065.jpg 
+.U SampleImages/12/31646.jpg 
+.U SampleImages/12/32037.jpg 
+.I 13
+.T exterior view of school building 
+.C country  
+.N Relevant images will show the exterior view of a school building, either in its whole or a part of it. Images of other buildings than schools are not relevant. Interior views of schools (like classrooms) are not relevant either. 
+.U SampleImages/13/720.jpg 
+.U SampleImages/13/26244.jpg 
+.U SampleImages/13/26719.jpg 
+.I 15
+.T night shots of cathedrals 
+.C city 
+.N Relevant images will show churches or cathedrals at night: the building is illuminated and/or the background is black. Images of cathedrals or churches during the day are not relevant. Other night shots without cathedrals are not relevant. 
+.U SampleImages/15/2125.jpg 
+.U SampleImages/15/4947.jpg 
+.U SampleImages/15/8062.jpg 
+.I 16
+.T people in San Francisco 
+.C landmark 
+.N Relevant images will show the Californian city of San Francisco with at least one person. Images of San Francisco without people are not relevant. Images of people not in San Francisco are not relevant. 
+.U SampleImages/16/38058.jpg 
+.U SampleImages/16/38069.jpg 
+.U SampleImages/16/38220.jpg 
+.I 17
+.T lighthouse at the sea 
+.C city / national park 
+.N Relevant images will show lighthouses near the sea (the sea must be visible in the image). Images of lighthouses without water in the foreground or background are not relevant. Images of the sea without a lighthouse are not relevant. 
+.U SampleImages/17/3273.jpg 
+.U SampleImages/17/10959.jpg 
+.U SampleImages/17/33458.jpg 
+.I 18
+.T sport stadium outside Australia 
+.C country  
+.N Relevant images will show sport stadia anywhere in the world but Australia. This includes interior (grandstands with or without spectators, sports field) and exterior views. Stadia in Australia are not relevant. Buildings outside of Australia or stadia that are not used for sports are not relevant. 
+.U SampleImages/18/35790.jpg 
+.U SampleImages/18/38195.jpg 
+.U SampleImages/18/38228.jpg 
+.I 19
+.T exterior view of sport stadium 
+.C country  
+.N Relevant images will show exterior view of stadia, either in the focus of the image or in the background. Interior views of stadia (grandstands, sports field, etc.) are not relevant. Exterior views of buildings that are not stadia are not relevant. 
+.U SampleImages/19/31393.jpg 
+.U SampleImages/19/35791.jpg 
+.U SampleImages/19/40324.jpg 
+.I 20
+.T close-up photograph of an animal 
+.C animal 
+.N Relevant images will show close-up pictures of animals. Close-up pictures of humans (although technically speaking we are animals as well!) are not relevant. Photos with more than one animal are not relevant. 
+.U SampleImages/20/2637.jpg 
+.U SampleImages/20/5154.jpg 
+.U SampleImages/20/38894.jpg 
+.I 21
+.T accommodation provided by host families 
+.C country  
+.N Relevant images will show guest rooms provided by host families to tourists. Family photos of host families or exterior views of their buildings are not relevant. Photos of rooms or accommodations that are not provided by host families are not relevant either. 
+.U SampleImages/21/25578.jpg 
+.U SampleImages/21/26040.jpg 
+.U SampleImages/21/26437.jpg 
+.I 23
+.T sport photos from California 
+.C sport 
+.N Relevant images will depict sports activities in the US state of California. Both sporting competitions and sport for recreation, fun or as a hobby are relevant. Competitions outside of California are not relevant. Images from California that are not sport are also not relevant. 
+.U SampleImages/23/37505.jpg 
+.U SampleImages/23/38196.jpg 
+.U SampleImages/23/38229.jpg 
+.I 24
+.T snowcapped building in Europe 
+.C city 
+.N Relevant images will show snow-covered buildings in Europe. It must be clear in the image that there is snow on at least one part of the building. Images of buildings with no snow on them (or snow just lying around the building) are not relevant. Snowy buildings outside of Europe are not relevant. Buildings from the Asian part of Russia (Siberia) are not relevant either. 
+.U SampleImages/24/34159.jpg 
+.U SampleImages/24/37163.jpg 
+.U SampleImages/24/37396.jpg 
+.I 28
+.T cathedral in Ecuador 
+.C city 
+.N Relevant images will show cathedrals (or churches) in Ecuador. Images with cathedrals that are not in Ecuador are not relevant. Images from Ecuador that do not show a cathedral or church are not relevant. 
+.U SampleImages/28/3751.jpg 
+.U SampleImages/28/3794.jpg 
+.U SampleImages/28/16432.jpg 
+.I 29
+.T views of Sydney's world-famous landmarks 
+.C landmark 
+.N Relevant images will show all views of one of Sydney's three world-famous landmarks: Opera House, Harbour Bridge, Bondi Beach. Images of other landmarks in Sydney are not relevant (although they might be considered as well-known by Australians). Images of landmarks that are not in Sydney are not relevant. 
+.U SampleImages/29/32759.jpg 
+.U SampleImages/29/32814.jpg 
+.U SampleImages/29/39632.jpg 
+.I 31
+.T volcanoes around Quito 
+.C volcano 
+.N Relevant images will show one of the following volcanos near Quito: Cotopaxi, Antisana, Cayambe, Illiniza, Atacazo, Pichincha, Pululahua. The volcano must clearly be visible in the image and can be in the foreground or background. Images with other volcanos than the ones mentioned before are not relevant. Images near these volcanos but not showing them (like refuges) are not relevant. 
+.U SampleImages/31/3616.jpg 
+.U SampleImages/31/22395.jpg 
+.U SampleImages/31/26051.jpg 
+.I 34
+.T group picture on a beach 
+.C country  
+.N Relevant images will show a group of (at least three) people posing on a beach. Images are just relevant if the group is aware that it is being photographed and if at least one person is looking or waving at the camera. Images of people not aware that they are being photographed (snap shots), individual persons or couples or just crowded beaches are not relevant. Group photos that were not taken on beaches are not relevant either.  
+.U SampleImages/34/10296.jpg 
+.U SampleImages/34/10331.jpg 
+.U SampleImages/34/11601.jpg 
+.I 35
+.T bird flying 
+.C bird 
+.N Relevant images will show one or many birds in the act of flying. Birds that are not flying are not relevant. Other flying objects that are not birds are not relevant either. 
+.U SampleImages/35/7731.jpg 
+.U SampleImages/35/25004.jpg 
+.U SampleImages/35/39512.jpg 
+.I 37
+.T sights along the Inka-Trail 
+.C tourist attraction 
+.N Relevant images will show both natural and man-made sights along the Inka-Trail on the way to the ruins of Machu Picchu. This includes waterfalls as well as ruins like Winay Wayna, Cachabamba or the Sun Gate, but not Machu Picchu. Images of sights which are not located along the Inka-Trail or images of people walking on the Inka-Trail are not relevant. 
+.U SampleImages/37/6776.jpg 
+.U SampleImages/37/16336.jpg 
+.U SampleImages/37/20614.jpg 
+.I 39
+.T people in bad weather 
+.C weather condition 
+.N Relevant images will show people in bad weather conditions (rain, hail, fog, wind, storm, heavy snowfall, etc.) Images of bad weather without at least one person are not relevant. People in good (sunshine, blue sky) or average (overcast, cloudy) weather conditions are not relevant either. 
+.U SampleImages/39/14560.jpg 
+.U SampleImages/39/16672.jpg 
+.U SampleImages/39/17153.jpg 
+.I 40
+.T tourist destinations in bad weather 
+.C country  
+.N Relevant images will show tourist sights in bad weather conditions (rain, hail, fog, wind, storm, heavy snowfall, etc.) Tourist destinations include natural landmarks (like waterfalls, mountains, rivers, beaches, etc.) as well as man-made landmarks (cities, monuments, squares, etc.). Tourist destinations in good or average weather conditions (sunshine, overcast, cloudy) are not relevant. 
+.U SampleImages/40/11380.jpg 
+.U SampleImages/40/11645.jpg 
+.U SampleImages/40/25506.jpg 
+.I 41
+.T winter landscape in South America 
+.C country  
+.N Relevant images will show a mostly snow-covered landscape in South America. Images of landscapes with a snow-cover of less than 50 % are not relevant. Images of a landscape not in South America are not relevant. 
+.U SampleImages/41/2105.jpg 
+.U SampleImages/41/2721.jpg 
+.U SampleImages/41/10338.jpg 
+.I 43
+.T sunset over water 
+.C country  
+.N Relevant images will show the sun setting above a body of water. Images are relevant if the sun is visible in the image, and the body of water will meet the horizon where the sun is going to be setting. Images of sunsets in which the sun is not visible or will not be setting over water are not relevant.  
+.U SampleImages/43/4966.jpg 
+.U SampleImages/43/5000.jpg 
+.U SampleImages/43/23909.jpg 
+.I 44
+.T mountains on mainland Australia 
+.C location 
+.N Relevant images will show mountains on mainland Australia. Images of mountains of Australian islands (e.g. Tasmania, Kangaroo Island, etc) are not relevant. Mountains outside Australia are not relevant. Photos from Australia with no mountains are not relevant. 
+.U SampleImages/44/31871.jpg 
+.U SampleImages/44/39259.jpg 
+.U SampleImages/44/39525.jpg 
+.I 48
+.T vehicle in South Korea 
+.C vehicle type 
+.N Relevant images will show vehicles in South Korea, including cars, trains, buses, forklifts, boats, and so on. Images with vehicles outside of South Korea are not relevant. Images from South Korea without a single vehicle are not relevant either. 
+.U SampleImages/48/35645.jpg 
+.U SampleImages/48/35705.jpg 
+.U SampleImages/48/35982.jpg 
+.I 49
+.T images of typical Australian animals 
+.C animal 
+.N Relevant images will show an animal that is unique to Australia and lives nowhere else, like kangaroos, wallabies, koalas, wombats, quokkas, platypuses, possums or Tasmanian devils. Images of other animals are not relevant unless there is at least one of the aforementioned animals present in the image too. 
+.U SampleImages/49/39855.jpg 
+.U SampleImages/49/40192.jpg 
+.U SampleImages/49/40214.jpg 
+.I 50
+.T indoor photos of a church or cathedral 
+.C country  
+.N Relevant images will show an interior view of a church or cathedral. Images showing exterior views of churches or cathedrals are not relevant. Interior views of other buildings than fanes are not relevant. 
+.U SampleImages/50/5120.jpg 
+.U SampleImages/50/7301.jpg 
+.U SampleImages/50/7315.jpg 
+.I 52
+.T sports people with prizes 
+.C sport  
+.N Relevant images will show sports people with medals, trophies, cups or other types of sports prizes. Images of sportsmen or women without a prize are not relevant. 
+.U SampleImages/52/31542.jpg 
+.U SampleImages/52/31708.jpg 
+.U SampleImages/52/32350.jpg 
+.I 53
+.T views of walls with unsymmetric stones 
+.C country  
+.N Relevant images will show a wall made of asymmetric stones or bricks. A wall with regular, cuboid, cubic or round bricks or stones are not relevant. An asymmetric stone or brick which is not part of a wall is not relevant either. 
+.U SampleImages/53/2174.jpg 
+.U SampleImages/53/11097.jpg 
+.U SampleImages/53/13373.jpg 
+.I 54
+.T famous television (and telecommunication) towers 
+.C country  
+.N Relevant images will show famous television and telecommunication towers (like the Eiffel Tower, the Seoul Tower, the Statrosphere Tower, the Sydney Sky Tower etc). Skyscrapers are not towers (although they are often wrongly named "tower", like the Rialto Towers, Petronas Towers, Twin Towers, etc.) and are therefore not relevant. 
+.U SampleImages/54/35879.jpg 
+.U SampleImages/54/37067.jpg 
+.U SampleImages/54/39600.jpg 
+.I 55
+.T drawings in Peruvian deserts 
+.C location 
+.N Relevant images will show drawings that were found in deserts in Peru. This includes the Nazca-Lines near Nazca, the Candelabro in Paracas or the Petroglyphs of Toro Muerto near Corire. Images in which the drawings are clearly visible are relevant. Images of drawings that are not in Peruvian deserts are not relevant, and images of drawings that are not visible in the image are not relevant either. 
+.U SampleImages/55/11189.jpg 
+.U SampleImages/55/14097.jpg 
+.U SampleImages/55/16275.jpg 
+.I 56
+.T photos of oxidised vehicles 
+.C vehicle type 
+.N Relevant images will show one or more oxidised (rusty) vehicles. Images of new vehicles or vehicles with no rust are not relevant. Images of rusty objects that are not vehicles are not relevant either.  
+.U SampleImages/56/4614.jpg 
+.U SampleImages/56/15514.jpg 
+.U SampleImages/56/30652.jpg 
+.I 58
+.T seals near water 
+.C country  
+.N Relevant images will show seals (or more specific: fur seals, ear seals and sea lions) at a body of water (sea, lake, etc.). The water has to be visible for an image to be relevant. Images of seals with no water visible in the image are not relevant. Images of water but without seals are not relevant either. 
+.U SampleImages/58/14142.jpg 
+.U SampleImages/58/27047.jpg 
+.U SampleImages/58/31189.jpg 
+.I 59
+.T creative group pictures in Uyuni 
+.C group composition 
+.N Relevant images will show tourist groups of at least three people in an unconventional, creative, even funny pose in Uyuni. These poses include creative formations, experiments with perspectives, tourists dancing, handstanding and so on. Images with tourists just standing in a conventional way or posing like a soccer team are not relevant. Images of just one or two persons are not considered as a group and are not relevant either. Images with groups that are not posing in Uyuni are not relevant. 
+.U SampleImages/59/8254.jpg 
+.U SampleImages/59/9631.jpg 
+.U SampleImages/59/17327.jpg 
+.I 60
+.T salt heaps in salt pan 
+.C composition 
+.N Relevant images will show one or more salt piles in a salt pan. Images of a salt pan without salt piles are not relevant. 
+.U SampleImages/60/7765.jpg 
+.U SampleImages/60/10323.jpg 
+.U SampleImages/60/27037.jpg 
