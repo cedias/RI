@@ -70,10 +70,12 @@ public class EvalIRModel {
 
 			HashMap<String, Integer> queryText = dfs.getStemsFromDocument(query.d, st);
 			queryText.remove(" * ");
-			System.out.println(queryText);
+			//System.out.println(queryText);
+
 			for(IRmodel model: models){
 				ArrayList<Rank> ranking = model.getRanking(queryText);
 				IRList result = new IRList(query, ranking);
+;
 
 				for(int i=0;i<mesures.size();i++){
 					EvalMeasure mesure = mesures.get(i);
@@ -89,12 +91,16 @@ public class EvalIRModel {
 							finalList.set(j, finalList.get(j)+eval.get(j));
 
 						}
+
 					}
+					System.out.println(results);
 
 				}
 			}
 			queryCounter++;
 		}
+
+
 
 
 		for(List<Double> l: results){
@@ -107,7 +113,7 @@ public class EvalIRModel {
 		return results;
 
 	}
-	
+
 
 	public static Double[] getRappelLevels(int nbLevels){
 

@@ -24,7 +24,7 @@ public class GtParser {
 			if(line[0].startsWith("#") || line.length != 4)
 				continue;
 			
-			int queryId = Integer.parseInt(line[0]);
+			int queryId = Integer.parseInt(1+line[0]);
 			int docId = Integer.parseInt(toNeatString(line[2]));
 			
 			

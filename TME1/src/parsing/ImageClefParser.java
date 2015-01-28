@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 import classes.Document;
 
-public class CisiParser implements DocParser {
+public class ImageClefParser implements DocParser {
 
 	private int id;
 	private String titre = null;
@@ -23,7 +23,7 @@ public class CisiParser implements DocParser {
 	private Set<Integer> links = null;
 	private String filename;
 
-	public CisiParser(String filename){
+	public ImageClefParser(String filename){
 		this.filename = filename;
 	}
 
@@ -40,8 +40,6 @@ public class CisiParser implements DocParser {
 	@Override
 	public Document getDocument(String text, long lastAddress, String filename) {
 		parseCisiText(text);
-		System.out.println(new Document(this.id, this.titre, this.date, this.auteur, this.keywords, this.text, this.links, filename, lastAddress).toString());
-		System.exit(0);
 		return new Document(this.id, this.titre, this.date, this.auteur, this.keywords, this.text, this.links, filename, lastAddress);
 	}
 
@@ -50,15 +48,16 @@ public class CisiParser implements DocParser {
 
 
 		String[] lines = text.split("\n");
-		System.out.println(Arrays.toString(lines));
+
 		char currentCat = '#';
 		StringBuffer buf = new StringBuffer();
 
 		for(String line : lines){
 			line = line.trim();
-			System.out.println(line);
-			System.out.println(line.matches("^\\.(T|B|A|K|W|X|N)$"));
-			if(line.matches("^\\.(T|B|A|K|W|X|N)$")){
+
+			if(line.matches("^\\.(T|B|A|K|D|W|X|N).*")){
+				currentCat = line.charAt(1);
+				buf.append(line.substring(2));
 
 				switch(currentCat){
 					case '#':
@@ -77,6 +76,7 @@ public class CisiParser implements DocParser {
 					case 'K':
 						this.keywords = Arrays.asList(buf.toString().trim().split(","));
 						break;
+					case 'D':
 					case 'W':
 						this.text = buf.toString().trim();
 						break;
@@ -84,44 +84,14 @@ public class CisiParser implements DocParser {
 						links = this.linksSet(buf.toString().trim());
 						break;
 				}
-
-				currentCat = line.charAt(1);
 				buf.setLength(0);
+
 				continue;
 			}
-
-			if(currentCat == '#')
-				continue;
-
-			buf.append(line+'\n');
-
-
 		}
 
-		switch(currentCat){
-		case '#':
-			break;
-		case 'N': //Cacm
-			break;
-		case 'T':
-			this.titre = buf.toString().trim();
-			break;
-		case 'B':
-			this.date = null;
-			break;
-		case 'A':
-			this.auteur = buf.toString().trim();
-			break;
-		case 'K':
-			this.keywords = Arrays.asList(buf.toString().trim().split(","));
-			break;
-		case 'W':
-			this.text = buf.toString().trim();
-			break;
-		case 'X':
-			links = this.linksSet(buf.toString().trim());
-			break;
-	}
+
+
 
 
 	}
