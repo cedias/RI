@@ -78,12 +78,14 @@ public class EvalIRModel {
 ;
 
 				for(int i=0;i<mesures.size();i++){
+
 					EvalMeasure mesure = mesures.get(i);
 					List<Double> eval = mesure.eval(result);
-
+					System.out.println("eval:"+eval.toString());
 					if(queryCounter == 0){
 						results.add(eval);
 					}
+
 					else{
 						finalList = results.get(i);
 
@@ -93,7 +95,7 @@ public class EvalIRModel {
 						}
 
 					}
-					System.out.println(results);
+					//System.out.println(results);
 
 				}
 			}

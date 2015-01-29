@@ -31,7 +31,6 @@ public class EvalPN implements EvalMeasure {
 		//System.out.println(results.subList(0, 20).toString());
 		for(int i=0;i<n;i++){
 			if(relDocs.contains(results.get(i).doc)){
-
 				relCount++;
 			}
 			else
@@ -39,7 +38,8 @@ public class EvalPN implements EvalMeasure {
 		}
 
 		eval.add((relCount/(relCount+irrelCount+0.0))*100);
-		System.out.println(relCount);
+		
+
 		return eval;
 
 
